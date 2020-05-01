@@ -1,0 +1,13 @@
+<div class="container"  fxLayout="row wrap" fxLayoutAlign="center">
+    <div class="container-h1" fxLayout="row wrap" fxLayoutAlign="center">
+        <h1 >Ultimos Estrenos</h1>
+
+    </div>
+<div class="container-card"  fxLayout="row warp" fxLayoutAlign="center">
+    <mat-card  fxFlex="0 1 calc(13% - 10px)"  fxFlex.xs="100" *ngFor="let movie of movies;">
+        <img class="image" mat-card-image src="{{movie.photo}}" alt="photo" height="80%">
+        <mat-card-title style="text-align: center;">{{movie.title}}</mat-card-title>
+    </mat-card>
+</div>
+</div>
+
