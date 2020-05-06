@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  REST_API_SERVER :'http://vps722937.ovh.net:8000/',
+  RECENTMOVIES:'recentmovies',
+  GENRES:'genres',
+  SEARCHMOVIES:'search',
 };
 
 /*
