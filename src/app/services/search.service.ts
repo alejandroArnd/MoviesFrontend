@@ -16,7 +16,7 @@ export class SearchService {
   public sendPostCurrentPageRequest(){
     return this.httpclient.post(environment.REST_API_SERVER+environment.SEARCHMOVIES,{
       'currentPage':  1,
-      'title': 'La',
+      'title': 'la',
     });
   }
 }

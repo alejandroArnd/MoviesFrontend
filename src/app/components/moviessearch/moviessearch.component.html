@@ -2,7 +2,7 @@
 <div>
 <mat-form-field fxFlex="500px" fxFlex.xs="100px" >
     <input matInput>
-    <button mat-button>
+    <button mat-button (click)="getCheckSelected()"> 
       <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>
@@ -13,6 +13,6 @@
 </div>
 <div *ngIf = '!isShow' class="balloon" fxLayout.xs="column" fxLayout="row warp" fxLayoutAlign="start">
   <div fxFlex="0 1 calc(30% - 10px)" fxFlex.xs=50px *ngFor="let genre of genres">
-    <mat-checkbox>{{genre.name}}</mat-checkbox>
+    <mat-checkbox #checkBox value="{{genre.name}}" (change)="changeValueCheckedCheckBox(checkBox)" [checked]="genre.checked" >{{genre.name}}</mat-checkbox>
   </div>
 </div>
