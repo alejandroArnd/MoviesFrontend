@@ -1,0 +1,18 @@
+<div class="container-search"fxLayout="column" >
+<div>
+<mat-form-field fxFlex="500px" fxFlex.xs="100px" >
+    <input matInput>
+    <button mat-button>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<div  >
+<h6  (click) = toggleDisplay()>Busqueda Avanzada > ></h6>
+</div>
+</div>
+<div *ngIf = '!isShow' class="balloon" fxLayout.xs="column" fxLayout="row warp" fxLayoutAlign="start">
+  <div fxFlex="0 1 calc(30% - 10px)" fxFlex.xs=50px *ngFor="let genre of genres">
+    <mat-checkbox>{{genre.name}}</mat-checkbox>
+  </div>
+</div>

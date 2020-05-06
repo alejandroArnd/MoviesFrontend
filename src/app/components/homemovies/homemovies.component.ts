@@ -14,9 +14,7 @@ export class HomemoviesComponent implements OnInit {
 
   ngOnInit(): void {
     this.moviesServices.sendGetRecentMoviesRequest().subscribe((_movies:any)=>{
-    console.log(_movies);
     this.movies=_movies.data;
-    
     }
   )
  }

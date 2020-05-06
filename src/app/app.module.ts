@@ -13,12 +13,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule} from '@angular/material/menu'
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MoviessearchComponent } from './components/moviessearch/moviessearch.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomemoviesComponent
+    HomemoviesComponent,
+    MoviessearchComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { MatInputModule } from '@angular/material/input'
     FlexLayoutModule,
     MatMenuModule,
     MatInputModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
