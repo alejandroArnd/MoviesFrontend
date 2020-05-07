@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
 import { SearchService} from '../../services/search.service';
-import { MatCheckbox } from '@angular/material/checkbox';
+import { SearchresultComponent } from '../searchresult/searchresult.component';
+import { Router } from '@angular/router';
+import { query } from '@angular/animations';
 
 @Component({
   selector: 'app-moviessearch',
@@ -12,12 +14,11 @@ export class MoviessearchComponent implements OnInit {
   isShow = true;
   genres=[];
   checked=[];
-  constructor(private searchService:SearchService) { }
-
+  text='n'
+  constructor(private searchService:SearchService, private router: Router) { }
  
   toggleDisplay() {
     this.isShow = !this.isShow;
-    console.log(this.checked);
   }
   getCheckSelected(){
     this.checked = this.genres.reduce((accum, checkbox)=>{
@@ -26,21 +27,28 @@ export class MoviessearchComponent implements OnInit {
       }
       return accum
     },[]);
-    console.log(this.checked)
+    const queryParams: {[k: string]: any}={
+      page:1,
+      text:this.text
+    }
+    if(this.checked.length >0){
+      queryParams.genre=this.checked;
+    }
+      this.router.navigate(['/search'], {queryParams:queryParams}); 
+ 
   }
   changeValueCheckedCheckBox(checkbox){
     const genreChange=this.genres.find(({name})=>name===checkbox.value)
     genreChange.checked=checkbox.checked;
   }
 
+  changeValueCheckedWhenInitComponent(genreOfDataBase){
+
+  }
+
   ngOnInit(): void {
     this.searchService.sendGetAllGenresRequest().subscribe((_genres:any)=>{
       this.genres=_genres.data.map(genre=>{return {'name':genre.name,'checked':false }});
-      console.log(this.genres)
-      })
-      this.searchService.sendPostCurrentPageRequest().subscribe((_moviesSearch:any)=>{
-        console.log(_moviesSearch);
-        
       })
     }
   }

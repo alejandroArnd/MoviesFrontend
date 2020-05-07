@@ -15,13 +15,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule} from '@angular/material/menu'
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule} from '@angular/material/checkbox';
-import { MoviessearchComponent } from './components/moviessearch/moviessearch.component'
+import { MoviessearchComponent } from './components/moviessearch/moviessearch.component';
+import { SearchresultComponent } from './components/searchresult/searchresult.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomemoviesComponent,
-    MoviessearchComponent
+    MoviessearchComponent,
+    SearchresultComponent,
+
   ],
   imports: [
     BrowserModule,
