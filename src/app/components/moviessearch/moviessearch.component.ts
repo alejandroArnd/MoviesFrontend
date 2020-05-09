@@ -31,7 +31,7 @@ export class MoviessearchComponent implements OnInit {
     },[]);
     const queryParams: {[k: string]: any}={
       page:1,
-      text:this.title
+      text:this.title.trim(),
     }
     if(this.checked.length >0){
       queryParams.genre=this.checked;

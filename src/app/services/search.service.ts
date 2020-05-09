@@ -15,10 +15,11 @@ export class SearchService {
     return this.httpclient.get(environment.REST_API_SERVER+environment.GENRES)
   }
 
-  public sendPostCurrentPageRequest(page, title,){
+  public sendPostCurrentPageRequest(page, title,genres){
     return this.httpclient.post(environment.REST_API_SERVER+environment.SEARCHMOVIES,{
       'currentPage':  page,
       'title': title,
+      'genres':genres
     });
   }
 
