@@ -27,7 +27,7 @@ export class SearchresultComponent implements OnInit {
 
   loadSearchMovies(){
     this.searchService.sendPostCurrentPageRequest(this.currentPage,this.title, this.genresSelected).subscribe((_moviesSearch:any)=>{
-      this.movies=Object.values(_moviesSearch.movies)
+      this.movies=_moviesSearch.movies
       this.totalItems=_moviesSearch.maxItems
     })
 

@@ -14,7 +14,7 @@ export class MoviessearchComponent implements OnInit {
   isShow = true;
   genres=[];
   checked=[];
-  title:string
+  title:string="";
   constructor(private searchService:SearchService, private router: Router) {
     
    }
@@ -31,7 +31,7 @@ export class MoviessearchComponent implements OnInit {
     },[]);
     const queryParams: {[k: string]: any}={
       page:1,
-      text:this.title.trim(),
+      title:this.title.trim(),
     }
     if(this.checked.length >0){
       queryParams.genre=this.checked;
