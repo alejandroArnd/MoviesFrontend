@@ -1,8 +1,13 @@
-<div *ngFor="let movie of movies | paginate: {
+<div class="container"  fxLayout="row wrap" fxLayoutAlign="center">
+<div class="container-card"  fxLayout="row warp" fxLayoutAlign="center">
+  <mat-card  fxFlex="0 1 calc(17% - 10px)"  fxFlex.xs="100" *ngFor="let movie of movies | paginate: {
     currentPage: currentPage,
-    itemsPerPage: 9,
-    totalItems: totalItems
+    itemsPerPage: 12,
+    totalItems: totalItems  
   }">
-    <p>{{movie.title}}</p>
+      <img class="image" mat-card-image src="{{movie.photo}}" alt="photo" height="85%">
+      <mat-card-title style="text-align: center;">{{movie.title}}</mat-card-title>
+  </mat-card>
 </div>
-<pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+<pagination-controls  responsive="true"  (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+</div>
