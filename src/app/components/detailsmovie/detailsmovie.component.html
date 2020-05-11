@@ -1,0 +1,16 @@
+<div class="container" *ngFor="let movie of detailsMovie;" fxLayoutAlign="center" fxLayout="row wrap">
+<div class="container-image">
+    <img class="image-movie" alt="photo" src="{{movie.photo}}">
+</div>
+<div class="container-details">
+<p>{{movie.director}}</p>
+<div>
+    <p>{{movie.description}}</p>
+</div>
+<p>{{movie.title}}</p>
+<p>{{movie.releaseDate.date}}</p>
+<div *ngFor="let genre of movie.genres;">
+    <p>{{genre.name}}</p>
+</div>
+</div>
+</div>

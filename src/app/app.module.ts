@@ -18,7 +18,9 @@ import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MoviessearchComponent } from './components/moviessearch/moviessearch.component';
 import { SearchresultComponent } from './components/searchresult/searchresult.component';
 import { FormsModule } from '@angular/forms';
-import { NgxPaginationModule } from 'ngx-pagination'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DetailsmovieComponent } from './components/detailsmovie/detailsmovie.component';
+import { ReplacePipe } from './pipes/replace.pipe'
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { NgxPaginationModule } from 'ngx-pagination'
     HomemoviesComponent,
     MoviessearchComponent,
     SearchresultComponent,
+    DetailsmovieComponent,
+    ReplacePipe,
 
   ],
   imports: [

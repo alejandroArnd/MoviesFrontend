@@ -4,7 +4,7 @@
 
     </div>
 <div class="container-card"  fxLayout="row warp" fxLayoutAlign="center">
-    <mat-card  fxFlex="0 1 calc(13% - 10px)"  fxFlex.xs="100" *ngFor="let movie of movies;">
+    <mat-card [routerLink]="['/details',movie.title | replace]"  fxFlex="0 1 calc(13% - 10px)"  fxFlex.xs="100" *ngFor="let movie of movies;">
         <img class="image" mat-card-image src="{{movie.photo}}" alt="photo" height="80%">
         <mat-card-title style="text-align: center;">{{movie.title}}</mat-card-title>
     </mat-card>

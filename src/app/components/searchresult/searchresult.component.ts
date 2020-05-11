@@ -41,7 +41,6 @@ export class SearchresultComponent implements OnInit {
     if(this.genresSelected.length >0){
       queryParams.genre=this.genresSelected;
     }
-    console.log(this.title);
     this.router.navigate(['/search'], { queryParams: queryParams });
 }
 

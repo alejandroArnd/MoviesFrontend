@@ -23,4 +23,10 @@ export class SearchService {
     });
   }
 
+  public sendPostDetailsMovie(titleOfMovie){
+    return this.httpclient.post(environment.REST_API_SERVER+environment.DETAILSMOVIE,{
+      'title': titleOfMovie,
+    })
+  }
+
 }
