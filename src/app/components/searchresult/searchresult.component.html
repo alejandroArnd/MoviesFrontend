@@ -1,6 +1,6 @@
-<div class="container"  fxLayout="row wrap" fxLayoutAlign="center">
+<div class="container"  fxLayout="column" fxLayoutAlign="center center">
 <div class="container-card"  fxLayout="row warp" fxLayoutAlign="center">
-  <mat-card  fxFlex="0 1 calc(17% - 10px)"  fxFlex.xs="100" *ngFor="let movie of movies | paginate: {
+  <mat-card  fxFlex="300px"  *ngFor="let movie of movies | paginate: {
     currentPage: currentPage,
     itemsPerPage: 12,
     totalItems: totalItems  

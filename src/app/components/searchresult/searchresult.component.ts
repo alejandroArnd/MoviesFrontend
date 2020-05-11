@@ -20,7 +20,7 @@ export class SearchresultComponent implements OnInit {
     this.route.queryParamMap.subscribe( params => {
       this.currentPage=params.get('page');
       this.genresSelected=params.getAll('genre')
-      this.title=params.get('text')
+      this.title=params.get('title')
       this.loadSearchMovies();
     });
   }
@@ -36,11 +36,12 @@ export class SearchresultComponent implements OnInit {
   pageChange(newPage: number) {
     const queryParams: {[k: string]: any}={
       page:newPage,
-      text:this.title
+      title:this.title
     }
     if(this.genresSelected.length >0){
       queryParams.genre=this.genresSelected;
     }
+    console.log(this.title);
     this.router.navigate(['/search'], { queryParams: queryParams });
 }
 
