@@ -1,16 +1,33 @@
-<div class="container" *ngFor="let movie of detailsMovie;" fxLayoutAlign="center" fxLayout="row wrap">
+<div class="container" *ngFor="let movie of detailsMovie;"  fxLayoutAlign="center" fxLayout="row wrap">
 <div class="container-image">
     <img class="image-movie" alt="photo" src="{{movie.photo}}">
 </div>
 <div class="container-details">
-<p>{{movie.director}}</p>
-<div>
-    <p>{{movie.description}}</p>
-</div>
-<p>{{movie.title}}</p>
-<p>{{movie.releaseDate.date}}</p>
-<div *ngFor="let genre of movie.genres;">
-    <p>{{genre.name}}</p>
-</div>
+    <table>
+        <tr>
+          <td><span>Director:</span></td>
+          <td>{{movie.director}}</td>
+        </tr>
+        <tr>
+          <td><span>Descripción:</span></td>
+          <td class="description">{{movie.description}}</td>
+        </tr>
+        <tr>
+          <td><span>Titulo:</span></td>
+          <td>{{movie.title}}</td>
+        </tr>
+        <tr>
+            <td><span>Fecha:</span></td>
+            <td>{{movie.releaseDate.date}}</td>
+        </tr>
+        <tr>
+            <td><span>Generos:</span></td>
+            <td fxLayoutAlign="start start" fxLayout="row wrap">
+            <div fxLayoutAlign="start start" fxLayout="row wrap" *ngFor="let genre of movie.genres;">
+                <p>{{genre.name}}<span></span></p>
+            </div>
+            </td>
+        </tr>
+      </table>
 </div>
 </div>
