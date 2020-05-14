@@ -16,7 +16,6 @@ export class DetailsmovieComponent implements OnInit {
    const titleOfMovie=this.activatedRoute.snapshot.url[1].path.replace(new RegExp('-','g')," ");
    this.searchService.sendPostDetailsMovie(titleOfMovie).subscribe((response:any)=>{
      this.detailsMovie=response.data;
-     console.log(this.detailsMovie);
    })
   }
 
