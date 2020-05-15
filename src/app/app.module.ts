@@ -17,10 +17,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MoviessearchComponent } from './components/moviessearch/moviessearch.component';
 import { SearchresultComponent } from './components/searchresult/searchresult.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DetailsmovieComponent } from './components/detailsmovie/detailsmovie.component';
-import { ReplacePipe } from './pipes/replace.pipe'
+import { ReplacePipe } from './pipes/replace.pipe';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ReplacePipe } from './pipes/replace.pipe'
     SearchresultComponent,
     DetailsmovieComponent,
     ReplacePipe,
+    RegisterComponent,
 
   ],
   imports: [
@@ -49,6 +51,7 @@ import { ReplacePipe } from './pipes/replace.pipe'
     MatCheckboxModule,
     FormsModule,
     NgxPaginationModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

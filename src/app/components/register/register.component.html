@@ -1,0 +1,35 @@
+<div class="container" fxLayoutAlign="center center" fxLayout="column">
+    <div class="logo">Create a new account!</div>
+    <div class="register-item">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"  class="form form-register">
+
+        <div class="form-field">
+            <mat-form-field  fxFlex="600px" fxFlex.xs="100px">
+                <mat-label>Legacy form field</mat-label>
+                <input matInput formControlName="username" placeholder="Username">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+              </mat-form-field>
+        </div>
+        <div class="form-field">
+            <mat-form-field fxFlex="600px" fxFlex.xs="100px">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" >
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+        </div>
+
+        <div class="form-field">
+        <mat-form-field fxFlex="600px" fxFlex.xs="100px">
+            <mat-label >Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="form-field">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+</div>
