@@ -1,0 +1,9 @@
+<mat-dialog-content fxLayoutAlign="center center" fxLayout="column">
+    <mat-icon [ngStyle]="{'color':'red','font-size':'60px'}" >error</mat-icon>
+	<p>
+		{{message}}
+	</p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+	<button mat-raised-button mat-dialog-close tabindex="-1">{{closeButtonText}}</button>
+</mat-dialog-actions>

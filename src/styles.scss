@@ -3,6 +3,8 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.warning-snackbar {
-    background: rgb(245, 52, 52);
-}
+.back-dialog .mat-dialog-container{
+    background-color: white;
+    color: black;
+    font-size: 20px;
+  }

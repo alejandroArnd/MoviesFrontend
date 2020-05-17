@@ -22,7 +22,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DetailsmovieComponent } from './components/detailsmovie/detailsmovie.component';
 import { ReplacePipe } from './pipes/replace.pipe';
 import { RegisterComponent } from './components/register/register.component';
-import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar'
+import { DialogComponent } from './components/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog'
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar'
     DetailsmovieComponent,
     ReplacePipe,
     RegisterComponent,
+    DialogComponent,
 
   ],
   imports: [
@@ -53,7 +55,7 @@ import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar'
     FormsModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

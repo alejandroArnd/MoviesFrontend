@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   hide = true;
   registerForm: FormGroup;
 
-  constructor( private formBuilder: FormBuilder, private authService: AuthService, private _snackBar:MatSnackBar) { }
+  constructor( private formBuilder: FormBuilder, private authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -23,20 +24,26 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.registerForm.value)
-
     if (this.registerForm.invalid) {
       return;
   }
   
    this.authService.sendRegisterUserRequest(this.registerForm.value).subscribe(    
      data => {
+      
   },
   error => {
-    this._snackBar.open('Username or email already exist','Close', {
-      duration: 10000,
-      panelClass: ['warning-snackbar']
-    });
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data:{
+        message: 'Username or email alraedy exists ',
+      },
+      width: '450px',
+      height: '250px',
+      panelClass: 'back-dialog'
+    }); 
+    setTimeout(() => {
+      dialogRef.close();
+    }, 10000);
 })
     }
   get email() { return this.registerForm.get('email'); }
