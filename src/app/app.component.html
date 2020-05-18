@@ -1,15 +1,14 @@
 
 <mat-toolbar color="secondary"  fxLayoutAlign="center center" fxLayoutAlign.xs="start center" fxLayoutGap="50px">
-  <h1 class="title">
+  <h1 class="title" routerLink="/home" >
     Movies 
   </h1>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-  <button mat-button routerLink="/" >Foro</button>
 </div>
 <app-moviessearch></app-moviessearch>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
   <button mat-button routerLink="/register">Registarse</button>
-  <button mat-button routerLink="/">Iniciar Sesión</button>
+  <button mat-button routerLink="/login">Iniciar Sesión</button>
 </div>
 <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
   <mat-icon>menu</mat-icon>

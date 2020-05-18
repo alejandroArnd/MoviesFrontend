@@ -4,6 +4,7 @@ import { HomemoviesComponent } from './components/homemovies/homemovies.componen
 import { SearchresultComponent } from './components/searchresult/searchresult.component';
 import { DetailsmovieComponent } from './components/detailsmovie/detailsmovie.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'home', component: HomemoviesComponent},
   { path: 'search',  runGuardsAndResolvers: 'paramsOrQueryParamsChange',  component:SearchresultComponent},
   { path: 'details/:movie', component:DetailsmovieComponent},
-  { path: 'register', component:RegisterComponent}
+  { path: 'register', component:RegisterComponent},
+  { path: 'login', component:LoginComponent}
 ];
 
 @NgModule({

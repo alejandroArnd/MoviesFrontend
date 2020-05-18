@@ -5,5 +5,6 @@ export const environment = {
   GENRES:'genres',
   SEARCHMOVIES:'search',
   DETAILSMOVIE:'detailsmovies',
-  REGISTER:'register'
+  REGISTER:'register',
+  LOGIN:'login_check'
 };

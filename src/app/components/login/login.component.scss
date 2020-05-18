@@ -1,0 +1,41 @@
+.form-field ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+    background-color: rgb(0, 0, 0) !important;
+  } 
+
+  .form-field ::ng-deep .mat-form-field-label{
+      color: black !important;
+  }
+
+  .container{
+    font-size: 20px;
+    width: auto;
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    box-shadow: 1px 3px 15px 3px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    height: 79%;
+}
+
+
+.logo{
+  font-family: "museo-slab";  
+  font-size:20px;
+  text-align: center;
+  padding: 20px 20px 0;
+  margin:0;
+}
+
+.form-field{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+@media all and (max-width: 500px)  {
+  .container {
+    margin:0px;
+    border-radius: 0px;
+    height: 88%;
+  }
+}

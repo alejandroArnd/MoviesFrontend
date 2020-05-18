@@ -23,7 +23,8 @@ import { DetailsmovieComponent } from './components/detailsmovie/detailsmovie.co
 import { ReplacePipe } from './pipes/replace.pipe';
 import { RegisterComponent } from './components/register/register.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import { LoginComponent } from './components/login/login.component'
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { MatDialogModule } from '@angular/material/dialog'
     ReplacePipe,
     RegisterComponent,
     DialogComponent,
+    LoginComponent,
 
   ],
   imports: [

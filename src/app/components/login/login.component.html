@@ -1,0 +1,34 @@
+<div class="container" fxLayoutAlign="center center" fxLayout="column">
+    <div class="logo">Login!</div>
+    <div class="login-item">
+      <form [formGroup]="loginForm"  class="form form-login">
+
+        <div class="form-field">
+            <mat-form-field  fxFlex="600px" fxFlex.xs="300px">
+                <mat-label>Enter your Username</mat-label>
+                <input matInput formControlName="username" placeholder="Username">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+                <mat-error>
+                  Username required.
+            </mat-error>
+              </mat-form-field>
+        </div>
+
+        <div class="form-field">
+        <mat-form-field fxFlex="600px" fxFlex.xs="300px">
+            <mat-label >Enter your password</mat-label>
+            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+            <button mat-button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.errors?.required">
+              Password required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-field">
+          <input type="submit" value="Log In" (click)=onSubmit()>
+        </div>
+      </form>
+    </div>
+</div>
