@@ -5,6 +5,7 @@ import { SearchresultComponent } from './components/searchresult/searchresult.co
 import { DetailsmovieComponent } from './components/detailsmovie/detailsmovie.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGuardGuard } from './guard/auth-guard.guard';
 
 
 const routes: Routes = [
@@ -12,8 +13,8 @@ const routes: Routes = [
   { path: 'home', component: HomemoviesComponent},
   { path: 'search',  runGuardsAndResolvers: 'paramsOrQueryParamsChange',  component:SearchresultComponent},
   { path: 'details/:movie', component:DetailsmovieComponent},
-  { path: 'register', component:RegisterComponent},
-  { path: 'login', component:LoginComponent}
+  { path: 'register', component:RegisterComponent, canActivate:[AuthGuardGuard]},
+  { path: 'login', component:LoginComponent, canActivate:[AuthGuardGuard]}
 ];
 
 @NgModule({
