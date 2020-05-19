@@ -10,7 +10,8 @@ export const environment = {
   SEARCHMOVIES:'search',
   DETAILSMOVIE:'detailsmovies',
   REGISTER:'register',
-  LOGIN:'login_check'
+  LOGIN:'login_check',
+  REFRESH_TOKEN:'/token/refresh'
 };
 
 /*

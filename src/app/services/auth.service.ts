@@ -19,6 +19,11 @@ export class AuthService {
     return this.httpclient.post(environment.REST_API_SERVER+environment.LOGIN,user);
   }
 
+  public sendRefreshToken(){
+    const refreshToken=localStorage.getItem('refresh_token');
+    return this.httpclient.post(environment.REST_API_SERVER+environment.REFRESH_TOKEN,refreshToken);
+  }
+
 
   public setSession(authResult) {
     const expiresAt = moment().add(3600,'second');
@@ -36,7 +41,11 @@ export class AuthService {
     if(!localStorage.getItem("expires_at")){
       return false;
     }
-    return moment().isBefore(this.getExpiration());
+    if(!moment().isBefore(this.getExpiration())){
+      const authRefresh=this.sendRefreshToken();
+      this.setSession(authRefresh);
+    }
+    return true;
   }
   
   public getExpiration() {
