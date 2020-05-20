@@ -7,9 +7,9 @@
 </div>
 <app-moviessearch></app-moviessearch>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-  <button mat-button routerLink="/register" *ngIf="!authservice.isLoggedIn()">Registarse</button>
-  <button mat-button routerLink="/login" *ngIf="!authservice.isLoggedIn()">Iniciar Sesión</button>
-  <button mat-button (click)=logout() *ngIf="authservice.isLoggedIn()">Cerrar Sesión</button>
+  <button mat-button routerLink="/register" *ngIf="!islogged">Registarse</button>
+  <button mat-button routerLink="/login" *ngIf="!islogged">Iniciar Sesión</button>
+  <button mat-button (click)=logout() *ngIf="islogged">Cerrar Sesión</button>
 </div>
 <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
   <mat-icon>menu</mat-icon>
@@ -17,9 +17,9 @@
 
 </mat-toolbar>
 <mat-menu x-position="after" #menu="matMenu">
-  <button mat-menu-item routerLink="/login" *ngIf="!authservice.isLoggedIn()">Iniciar Sesion</button>
-  <button mat-menu-item routerLink="/register" *ngIf="!authservice.isLoggedIn()">Registarse</button>
-  <button mat-button (click)=logout() *ngIf="authservice.isLoggedIn()">Cerrar Sesión</button>
+  <button mat-menu-item routerLink="/login" *ngIf="!islogged">Iniciar Sesion</button>
+  <button mat-menu-item routerLink="/register" *ngIf="!islogged">Registarse</button>
+  <button mat-button (click)=logout() *ngIf="islogged">Cerrar Sesión</button>
   <!--<button mat-menu-item>Help</button>-->
 </mat-menu>
 <router-outlet></router-outlet>
