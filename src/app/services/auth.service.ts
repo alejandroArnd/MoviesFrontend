@@ -21,7 +21,7 @@ export class AuthService {
 
   public sendRefreshToken(){
     const refreshToken=localStorage.getItem('refresh_token');
-    return this.httpclient.post(environment.REST_API_SERVER+environment.REFRESH_TOKEN,refreshToken);
+    return this.httpclient.post(environment.REST_API_SERVER+environment.REFRESH_TOKEN,{'refresh_token':refreshToken});
   }
 
 
@@ -42,8 +42,9 @@ export class AuthService {
       return false;
     }
     if(!moment().isBefore(this.getExpiration())){
-      const authRefresh=this.sendRefreshToken();
-      this.setSession(authRefresh);
+     this.sendRefreshToken().subscribe(data=>{ 
+       this.setSession(data);
+      });
     }
     return true;
   }
