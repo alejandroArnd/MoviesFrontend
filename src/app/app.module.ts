@@ -19,12 +19,14 @@ import { MoviessearchComponent } from './components/moviessearch/moviessearch.co
 import { SearchresultComponent } from './components/searchresult/searchresult.component';
 import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { DetailsmovieComponent } from './components/detailsmovie/detailsmovie.component';
+import { DetailsmovieComponent } from './components/movie/detailsmovie/detailsmovie.component';
 import { ReplacePipe } from './pipes/replace.pipe';
 import { RegisterComponent } from './components/register/register.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { LoginComponent } from './components/login/login.component'
+import { LoginComponent } from './components/login/login.component';
+import { MovieComponent } from './components/movie/movie.component';
+import { CriticsComponent } from './components/movie/critics/critics.component'
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { LoginComponent } from './components/login/login.component'
     RegisterComponent,
     DialogComponent,
     LoginComponent,
+    MovieComponent,
+    CriticsComponent,
 
   ],
   imports: [

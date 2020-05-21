@@ -14,7 +14,6 @@ export class DetailsmovieComponent implements OnInit {
 
   ngOnInit(): void {
    const titleOfMovie=this.activatedRoute.snapshot.url[1].path.replace(new RegExp('_','g')," ");
-   console.log(titleOfMovie);
    this.searchService.sendPostDetailsMovie(titleOfMovie).subscribe((response:any)=>{
      this.detailsMovie=response.data;
    })
