@@ -4,6 +4,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -29,20 +31,13 @@ export class RegisterComponent implements OnInit {
       return;
   }
   
-   this.authService.sendRegisterUserRequest(this.registerForm.value).subscribe(    
+   this.authService.sendRegisterUserRequest(this.registerForm.value).pipe(catchError(
+    error=>{
+    this.authService.openErrorDialog(error);
+    return throwError(error.error.message)})).subscribe(    
      data => {
       this.router.navigate(['/login']);
-    },
-    error => {
-     this.dialog.open(DialogComponent, {
-      data:{
-        message: error.error.message,
-      },
-      width: '450px',
-      height: '250px',
-      panelClass: 'back-dialog'
-    }); 
-   })
+    })
   }
   get email() { return this.registerForm.get('email'); }
   get password(){return this.registerForm.get('password')}
