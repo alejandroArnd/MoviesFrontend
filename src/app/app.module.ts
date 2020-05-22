@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomemoviesComponent } from './components/homemovies/homemovies.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule} from '@angular/material/icon';
 import { MatCardModule} from '@angular/material/card';
@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './components/login/login.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { CriticsComponent } from './components/movie/critics/critics.component'
+import { RefreshtokenInterceptor } from './interceptors/refreshtoken.interceptor';
 
 
 @NgModule({
@@ -63,7 +64,13 @@ import { CriticsComponent } from './components/movie/critics/critics.component'
     ReactiveFormsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RefreshtokenInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

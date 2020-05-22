@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import * as moment from "moment";
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../components/dialog/dialog.component';
+import { share } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private httpclient: HttpClient ) { 
+  islogged=false;
+  constructor(private httpclient: HttpClient,  public dialog: MatDialog ) { 
   }
 
   public sendRegisterUserRequest(newUser){
@@ -26,27 +30,44 @@ export class AuthService {
 
 
   public setSession(authResult) {
-    const expiresAt = moment().add(3600,'second');
+    this.islogged=true
+    const expiresAt = moment().add(60,'second');
     localStorage.setItem('token', authResult.token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
     localStorage.setItem('refresh_token', authResult.refresh_token)
   } 
   public logout() {
+    this.islogged=false;
     localStorage.removeItem('token');
     localStorage.removeItem('expires_at');
     localStorage.removeItem('refresh_token')
   } 
 
-  public isLoggedIn() {
+  public isLoggedIn=()=> {
     if(!localStorage.getItem("expires_at")){
       return false;
     }
-    if(!moment().isBefore(this.getExpiration())){
-     this.sendRefreshToken().subscribe(data=>{ 
-       this.setSession(data);
-      });
-    }
+    this.checkIfTimeExpirationTokenIsOver();
     return true;
+  }
+
+  public checkIfTimeExpirationTokenIsOver(){
+    if(!moment().isBefore(this.getExpiration())){
+     return this.sendRefreshToken().pipe(share()).subscribe(data=>{ 
+        this.setSession(data);
+       });
+     }
+  }
+
+  public openErrorDialog(error){
+    const dialogRef=this.dialog.open(DialogComponent, {
+      data:{
+        message: error.error.message,
+      },
+      width: '450px',
+      height: '250px',
+      panelClass: 'back-dialog'
+    });
   }
   
   public getExpiration() {

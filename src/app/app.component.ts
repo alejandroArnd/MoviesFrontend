@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, AfterViewInit, DoCheck } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit, DoCheck, AfterContentChecked, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 
@@ -7,14 +7,13 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements DoCheck{
+export class AppComponent {
   title = 'MoviesFrontend';
-  islogged;
+  authService
   constructor( private router: Router, private authenticationService: AuthService){
+    this.authenticationService.islogged=this.authenticationService.isLoggedIn();
+    this.authService=this.authenticationService;
   }
- ngDoCheck(){
-  this.islogged=this.authenticationService.isLoggedIn()
- }
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
