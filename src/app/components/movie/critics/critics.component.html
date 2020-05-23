@@ -1,1 +1,40 @@
-<p>critics works!</p>
+<div class="container" fxLayoutAlign="center" fxLayout='column' >
+    <form [formGroup]="criticsForm"  class="form form-login">
+    <div fxLayoutAlign="center" fxLayout="row wrap" *ngIf='islogged'>
+        <mat-form-field class="form-field" fxFlex="400px" fxFlex.xs="100px">
+            <mat-label>Titulo</mat-label>
+            <input matInput  formControlName="title" placeholder="">
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error>
+              title required.
+        </mat-error>
+          </mat-form-field>
+      <mat-form-field class="form-field" fxFlex="300px" fxFlex.xs="100px">
+        <mat-label>Selecciona una nota</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option *ngFor='let note of notesAviables' [value]='note'>{{note}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayoutAlign="center" fxLayout="row wrap" *ngIf='islogged'>
+        <mat-form-field class="form-field" fxFlex="600px" fxFlex.xs="300px" appearance="outline">
+            <mat-label>Contenido</mat-label>
+            <textarea matInput  formControlName="content" placeholder="Ex. this is example..."></textarea>
+            <mat-error>
+                Content required.
+          </mat-error>
+        </mat-form-field>
+    </div>
+    <div fxLayoutAlign="center" fxLayout="row wrap" *ngIf='!islogged'>
+        <mat-form-field class="form-field" fxFlex="600px" fxFlex.xs="300px" appearance="outline"  >
+            <mat-label>Contenido</mat-label>
+            <textarea  matInput class="textarea-disable" readonly="true" [routerLink]="['/login']">
+                Registrate aqui para poder comentar tu critica!
+            </textarea>
+        </mat-form-field>
+    </div>
+    <div class="btn-Submit" *ngIf='islogged' fxLayoutAlign="end">
+        <input type="submit" value="Hacer Critica" (click)=onSubmit()>
+      </div>
+    </form>
+</div>

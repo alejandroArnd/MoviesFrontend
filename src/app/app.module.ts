@@ -28,6 +28,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { CriticsComponent } from './components/movie/critics/critics.component'
 import { RefreshtokenInterceptor } from './interceptors/refreshtoken.interceptor';
+import { MatSelectModule } from '@angular/material/select'
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { RefreshtokenInterceptor } from './interceptors/refreshtoken.interceptor
     FormsModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
   ],
   providers: [
     {

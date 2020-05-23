@@ -1,0 +1,39 @@
+.form-field ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+    background-color: rgb(0, 0, 0) !important;
+  } 
+
+  .form-field ::ng-deep .mat-form-field-label{
+      color: black !important;
+  }
+
+  .form-field ::ng-deep .mat-select-value-text{
+      color: black !important
+  }
+  .form-field ::ng-deep .mat-form-field-outline {
+      color: black !important;
+  }
+  .form-field ::ng-deep .mat-form-field-disabled{
+    color: black !important;
+  }
+  .container{
+    font-size: 20px;
+    width: auto;
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-top: -220px;
+    margin-bottom: 30px;
+    height: 79%;
+    color: black;
+}
+
+  .form-field{
+      margin-left: 20px;
+  }
+
+  .btn-Submit{
+      margin-right: 300px;
+  }
+  .textarea-disable{
+      resize: none;
+      cursor: pointer;
+  }
