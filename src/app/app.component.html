@@ -10,6 +10,7 @@
   <button mat-button routerLink="/register" *ngIf="!authService.islogged">Registarse</button>
   <button mat-button routerLink="/login" *ngIf="!authService.islogged">Iniciar Sesión</button>
   <button mat-button (click)=logout() *ngIf="authService.islogged">Cerrar Sesión</button>
+  <button mat-button  *ngIf="authService.islogged">{{authService.username}}</button>
 </div>
 <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
   <mat-icon>menu</mat-icon>

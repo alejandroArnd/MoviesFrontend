@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, public dialog: MatDialog, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, public dialog: MatDialog, private router: Router, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -33,9 +33,10 @@ export class LoginComponent implements OnInit {
      error=>{
      this.authService.openErrorDialog(error);
      return throwError(error)})).subscribe(    
-     data => {
+     (data: any) => {
        this.authService.setSession(data);
-      this.router.navigateByUrl('/home');
+       this.authService.username=data.user
+        this.router.navigate(['/home']);
       })
 
 }

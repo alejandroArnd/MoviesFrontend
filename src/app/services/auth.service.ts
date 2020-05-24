@@ -12,7 +12,8 @@ import { share } from 'rxjs/operators';
 })
 export class AuthService {
   islogged=false;
-  constructor(private httpclient: HttpClient,  public dialog: MatDialog ) { 
+  username;
+  constructor(private httpclient: HttpClient,  private dialog: MatDialog ) { 
   }
 
   public sendRegisterUserRequest(newUser){
@@ -28,10 +29,14 @@ export class AuthService {
     return this.httpclient.post(environment.REST_API_SERVER+environment.REFRESH_TOKEN,{'refresh_token':refreshToken});
   }
 
+  public sendGetUsername(){
+    return this.httpclient.get(environment.REST_API_SERVER+environment.USERNAME)
+  }
+
 
   public setSession(authResult) {
     this.islogged=true
-    const expiresAt = moment().add(60,'second');
+    const expiresAt = moment().add(3600,'second');
     localStorage.setItem('token', authResult.token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
     localStorage.setItem('refresh_token', authResult.refresh_token)
@@ -53,8 +58,11 @@ export class AuthService {
 
   public checkIfTimeExpirationTokenIsOver(){
     if(!moment().isBefore(this.getExpiration())){
-     return this.sendRefreshToken().pipe(share()).subscribe(data=>{ 
+      this.sendRefreshToken().pipe(share()).subscribe(data=>{ 
         this.setSession(data);
+        this.sendGetUsername().subscribe((data :any)=>{
+          this.username=data.username
+        })
        });
      }
   }
