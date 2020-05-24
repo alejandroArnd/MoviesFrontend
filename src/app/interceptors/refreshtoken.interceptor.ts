@@ -4,7 +4,8 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpHeaders
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -17,10 +18,23 @@ export class RefreshtokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
    const token = localStorage.getItem('token');
+   if(token){
+    const headers_object = new HttpHeaders().set("Authorization", "Bearer " +token);
+     request=request.clone({
+        headers:headers_object
+      }
+    );
+   }
 
     return next.handle(request).pipe(catchError((err: HttpErrorResponse) => {
       if(err.status === 401 && err.error.message === "Expired JWT Token"){
-         this.authservice.checkIfTimeExpirationTokenIsOver()
+         this.authservice.sendRefreshToken().subscribe((data: any)=>{ 
+          this.authservice.setSession(data);
+           next.handle(request.clone({
+             headers:new HttpHeaders().set("Authorization", "Bearer " + data.token)
+           }
+         ));
+         });
       }
       return throwError( err );
     }));
