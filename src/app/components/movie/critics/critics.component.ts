@@ -14,8 +14,11 @@ export class CriticsComponent implements OnInit{
   notesAviables=[1,2,3,4,5,6,7,8,9,10];
   islogged
   criticsForm:FormGroup;
-  constructor(private formBuilder: FormBuilder,private criticsMovie:CriticsmovieService,  private authenticationService: AuthService) { 
-    this.islogged=authenticationService.isLoggedIn();
+  critics=[];
+  totalItems;
+  currentPage=1
+  constructor(private formBuilder: FormBuilder,private criticsService:CriticsmovieService,  private authenticationService: AuthService) { 
+    this.islogged=authenticationService.islogged;
   }
   ngOnInit(): void {
     console.log(this.titleOfMovie);
@@ -23,9 +26,22 @@ export class CriticsComponent implements OnInit{
       title:['', Validators.required],
       content:['',Validators.required]
     })
+    this.loadCriticsMovie(1);
+  }
+
+  loadCriticsMovie(newPage){
+    this.criticsService.sendGetCriticsByMovieTitle(newPage,this.titleOfMovie).subscribe(
+      (response: any)=>{
+        this.critics=response.critics;
+        this.totalItems=response.maxItems
+      })
   }
 
   onSubmit(){
   }
 
+  pageChange(newPage: number) {
+    this.loadCriticsMovie(newPage);
+    this.currentPage=newPage;
+  }
 }

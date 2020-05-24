@@ -37,4 +37,12 @@
         <input type="submit" value="Hacer Critica" (click)=onSubmit()>
       </div>
     </form>
+    <div fxLayoutAlign="center center" fxLayout='column'>
+    <p *ngFor="let critic of critics | paginate: {
+      currentPage: currentPage,
+      itemsPerPage: 3,
+      totalItems: totalItems  
+    }">{{critic.title}}</p>
+    <pagination-controls  responsive="true"  (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+  </div>
 </div>
