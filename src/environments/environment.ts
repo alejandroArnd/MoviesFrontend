@@ -11,7 +11,9 @@ export const environment = {
   DETAILSMOVIE:'detailsmovies',
   REGISTER:'register',
   LOGIN:'login_check',
-  REFRESH_TOKEN:'token/refresh'
+  REFRESH_TOKEN:'token/refresh',
+  USERNAME:'username',
+  CRITICS:'critics',
 };
 
 /*
