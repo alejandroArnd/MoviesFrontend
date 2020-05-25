@@ -38,11 +38,21 @@
       </div>
     </form>
     <div fxLayoutAlign="center center" fxLayout='column'>
-    <p *ngFor="let critic of critics | paginate: {
-      currentPage: currentPage,
-      itemsPerPage: 3,
-      totalItems: totalItems  
-    }">{{critic.title}}</p>
+      <mat-card class="example-card" *ngFor="let critic of critics | paginate: {
+        currentPage: currentPage,
+        itemsPerPage: 3,
+        totalItems: totalItems  
+      }">
+        <mat-card-header>
+          <mat-card-title>{{critic.username}}</mat-card-title>
+          <mat-card-subtitle>{{critic.date}}</mat-card-subtitle>
+          <div class="note">{{critic.note}}</div>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-card-title> <p>{{critic.title}}</p></mat-card-title>
+          <p>{{critic.content}}</p>
+        </mat-card-content>
+      </mat-card>
     <pagination-controls  responsive="true"  (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
   </div>
 </div>

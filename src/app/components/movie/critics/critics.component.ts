@@ -18,10 +18,11 @@ export class CriticsComponent implements OnInit{
   totalItems;
   currentPage=1
   constructor(private formBuilder: FormBuilder,private criticsService:CriticsmovieService,  private authenticationService: AuthService) { 
-    this.islogged=authenticationService.islogged;
+    
   }
   ngOnInit(): void {
-    console.log(this.titleOfMovie);
+    this.islogged=this.authenticationService.islogged;
+    console.log(this.islogged);
     this.criticsForm = this.formBuilder.group({
       title:['', Validators.required],
       content:['',Validators.required]
