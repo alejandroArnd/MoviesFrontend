@@ -52,20 +52,17 @@ export class AuthService {
     if(!localStorage.getItem("expires_at")){
       return false;
     }
-    this.checkIfTimeExpirationTokenIsOver();
     return true;
   }
-
+/*
   public checkIfTimeExpirationTokenIsOver(){
     if(!moment().isBefore(this.getExpiration())){
       this.sendRefreshToken().pipe(share()).subscribe(data=>{ 
         this.setSession(data);
-        this.sendGetUsername().subscribe((data :any)=>{
-          this.username=data.username
-        })
        });
      }
   }
+  */
 
   public openErrorDialog(error){
     const dialogRef=this.dialog.open(DialogComponent, {

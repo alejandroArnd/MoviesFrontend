@@ -8,8 +8,9 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
+import * as moment from "moment";
 
 @Injectable()
 export class RefreshtokenInterceptor implements HttpInterceptor {
@@ -26,17 +27,24 @@ export class RefreshtokenInterceptor implements HttpInterceptor {
     );
    }
 
-    return next.handle(request).pipe(catchError((err: HttpErrorResponse) => {
+    return next.handle(request).pipe(catchError((err:HttpErrorResponse) => {
       if(err.status === 401 && err.error.message === "Expired JWT Token"){
-         this.authservice.sendRefreshToken().subscribe((data: any)=>{ 
-          this.authservice.setSession(data);
-           next.handle(request.clone({
-             headers:new HttpHeaders().set("Authorization", "Bearer " + data.token)
-           }
-         ));
-         });
+        return this.handle401Error(request, next);
       }
       return throwError( err );
     }));
   }
+
+  private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
+    if(!moment().isBefore(this.authservice.getExpiration())){
+    return this.authservice.sendRefreshToken().pipe(switchMap(data =>{ 
+      this.authservice.setSession(data);
+      return next.handle(request.clone({
+        headers:new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'))
+      })).toPromise().then(data => {
+      return data; 
+    });
+    }))
+  }
+}
 }
