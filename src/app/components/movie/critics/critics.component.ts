@@ -2,6 +2,9 @@ import { Component, OnInit, Input, AfterViewInit, AfterViewChecked, AfterContent
 import { CriticsmovieService } from 'src/app/services/criticsmovie.service';
 import { AuthService } from '../../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as moment from "moment";
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-critics',
@@ -25,7 +28,7 @@ export class CriticsComponent implements OnInit{
     console.log(this.islogged);
     this.criticsForm = this.formBuilder.group({
       title:['', Validators.required],
-      content:['',Validators.required]
+      content:['',Validators.required],
     })
     this.loadCriticsMovie(1);
   }
@@ -39,7 +42,31 @@ export class CriticsComponent implements OnInit{
   }
 
   onSubmit(){
+    if (this.criticsForm.invalid) {
+      return;
   }
+  let critic={...this.criticsForm.value,note:this.selected,date:moment().format('YYYY-MM-DD HH:mm:ss')}
+  if(this.currentPage===1){
+    this.authenticationService.sendGetUsername().subscribe((response:any)=>{
+      critic={...critic,username:response.username};
+      const criticDuplicate=this.critics.slice();
+      this.critics.pop();
+      this.critics.unshift(critic);
+      this.criticsService.sendInsertNewCritic(critic,this.titleOfMovie).pipe(catchError(
+        error=>{
+          this.critics=criticDuplicate;
+        return throwError(error);
+      }))
+    });
+        return ;
+    }
+    this.criticsService.sendInsertNewCritic(critic,this.titleOfMovie).pipe(catchError(
+      error=>{
+      return throwError(error);
+    })).subscribe(()=>{
+      this.loadCriticsMovie(this.currentPage);
+      })
+      };
 
   pageChange(newPage: number) {
     this.loadCriticsMovie(newPage);

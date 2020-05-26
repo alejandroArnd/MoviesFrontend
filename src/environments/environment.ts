@@ -14,6 +14,7 @@ export const environment = {
   REFRESH_TOKEN:'token/refresh',
   USERNAME:'username',
   CRITICS:'critics',
+  DOCRITIC:'docritic',
 };
 
 /*
