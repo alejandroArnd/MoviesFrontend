@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
      (data: any) => {
        this.authService.setSession(data);
        this.authService.username=data.user
-        this.router.navigate(['/home']);
+       window.location.href='/home'
+       // this.router.navigate(['/home']);
       })
 
 }

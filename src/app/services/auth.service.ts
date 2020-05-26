@@ -49,7 +49,7 @@ export class AuthService {
   } 
 
   public isLoggedIn=()=> {
-    if(!localStorage.getItem("expires_at")){
+    if(!localStorage.getItem("expires_at") && !localStorage.getItem('token')){
       return false;
     }
     return true;

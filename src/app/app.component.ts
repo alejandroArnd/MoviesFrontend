@@ -9,15 +9,17 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit  {
   title = 'MoviesFrontend';
-  authService
+  username;
+  islogged
   constructor( private router: Router, private authenticationService: AuthService){
     this.authenticationService.islogged=this.authenticationService.isLoggedIn();
-    this.authService=this.authenticationService;
+    this.islogged= this.authenticationService.islogged
   }
   ngOnInit(){
     if(localStorage.getItem('token')){
       this.authenticationService.sendGetUsername().subscribe((response:any)=>{
-        this.authenticationService.username=response.username;
+        console.log(response);
+        this.username=response.username;
       })
     }
   }
@@ -25,6 +27,7 @@ export class AppComponent implements OnInit  {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+    this.islogged=false
 }
 }
 
