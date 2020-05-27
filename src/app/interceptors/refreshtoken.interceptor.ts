@@ -11,11 +11,12 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import * as moment from "moment";
+import { Router } from '@angular/router';
 
 @Injectable()
 export class RefreshtokenInterceptor implements HttpInterceptor {
 
-  constructor(private authservice: AuthService) {}
+  constructor(private authservice: AuthService, private router: Router) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
    const token = localStorage.getItem('token');
@@ -30,6 +31,9 @@ export class RefreshtokenInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(catchError((err:HttpErrorResponse) => {
       if(err.status === 401 && err.error.message === "Expired JWT Token"){
         return this.handle401Error(request, next);
+      }
+      if(err.status===404){
+        this.handle404Error();
       }
       return throwError( err );
     }));
@@ -47,4 +51,7 @@ export class RefreshtokenInterceptor implements HttpInterceptor {
     }))
   }
 }
+  private handle404Error(){
+    this.router.navigateByUrl('**', {skipLocationChange:true});
+  }
 }

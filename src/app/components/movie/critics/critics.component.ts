@@ -58,7 +58,7 @@ export class CriticsComponent implements OnInit{
         return throwError(error);
       }))
     });
-        return ;
+        return;
     }
     this.criticsService.sendInsertNewCritic(critic,this.titleOfMovie).pipe(catchError(
       error=>{

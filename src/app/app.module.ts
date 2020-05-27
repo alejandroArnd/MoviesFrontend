@@ -28,7 +28,9 @@ import { LoginComponent } from './components/login/login.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { CriticsComponent } from './components/movie/critics/critics.component'
 import { RefreshtokenInterceptor } from './interceptors/refreshtoken.interceptor';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
+import { Pagenotfound404Component } from './components/pagenotfound404/pagenotfound404.component';
+import { TranslocoRootModule } from './transloco-root.module'
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { MatSelectModule } from '@angular/material/select'
     LoginComponent,
     MovieComponent,
     CriticsComponent,
+    Pagenotfound404Component,
 
   ],
   imports: [
@@ -65,6 +68,7 @@ import { MatSelectModule } from '@angular/material/select'
     ReactiveFormsModule,
     MatDialogModule,
     MatSelectModule,
+    TranslocoRootModule,
   ],
   providers: [
     {
