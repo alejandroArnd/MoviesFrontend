@@ -5,23 +5,23 @@
 <div class="container-details">
     <table>
         <tr>
-          <td><span>Director:</span></td>
+          <td><span>{{'MOVIE.DIRECTOR' | transloco}}:</span></td>
           <td>{{detailsMovie.director}}</td>
         </tr>
         <tr>
-          <td><span>Descripción:</span></td>
+          <td><span>{{'MOVIE.DESCRIPTION' | transloco}}:</span></td>
           <td class="description">{{detailsMovie.description}}</td>
         </tr>
         <tr>
-          <td><span>Titulo:</span></td>
+          <td><span>{{'MOVIE.TITLE' | transloco}}:</span></td>
           <td>{{detailsMovie.title}}</td>
         </tr>
         <tr>
-            <td><span>Fecha:</span></td>
+            <td><span>{{'MOVIE.DATE' | transloco}}:</span></td>
             <td>{{detailsMovie.releaseDate}}</td>
         </tr>
         <tr>
-            <td><span>Generos:</span></td>
+            <td><span>{{'MOVIE.GENRES' | transloco}}:</span></td>
             <td fxLayoutAlign="start start" fxLayout="row wrap">
             <div fxLayoutAlign="start start" fxLayout="row wrap" *ngFor="let genre of detailsMovie.genres;">
                 <p>{{genre.name}}<span></span></p>

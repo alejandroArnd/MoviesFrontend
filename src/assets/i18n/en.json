@@ -1,0 +1,51 @@
+{
+    "LANGUAGE":{
+        "ES":"Spanish",
+        "EN":"English" 
+    },
+    "HEADER":{
+        "LOGIN":"Log In",
+        "REGISTER":"Register",
+        "LOGOUT":"Log Out"
+    },
+    "HOMEMOVIES":{
+        "LASTMOVIES":"Last Movies"
+    },
+    "MOVIESSEARCH":{
+        "ADVANCEDSEARCH":"Advanced Search > >"
+    },
+    "MOVIE":{
+        "DIRECTOR":"Director",
+        "DESCRIPTION":"Description",
+        "TITLE":"Title",
+        "DATE":"Date",
+        "GENRES":"Genres"
+    },
+    "ERRORS":{
+        "TITLEREQUIRED":"Title required",
+        "CONTENTREQUIRED":"Content required",
+        "USERREQUIRED":"Username required",
+        "PASSWORD":{
+            "REQUIRED":"Password required",
+            "MINLENGTH":"The password must be a minimum of 8 characters"
+        },
+        "EMAIL":{
+            "REQUIRED":"Email required",
+            "INVALID":"Invalid email"
+        }
+    },
+    "CRITICS":{
+        "CONTENT":"Content",
+        "SELECTANOTE":"Select a note",
+        "REGISTERCOMMENTREVIEW":"Register here to comment on your review!",
+        "DOCRITIC":"Do critic"
+    },
+    "FORM":{
+        "CREATEACCOUNT":"Create a new account!",
+        "ENTER":{
+            "USERNAME":"Enter your username",
+            "PASSWORD":"Enter your password",
+            "EMAIL":"Enter your email"
+        }
+    }
+}

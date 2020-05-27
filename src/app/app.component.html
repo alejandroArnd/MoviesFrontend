@@ -3,13 +3,23 @@
   <h1 class="title" routerLink="/home" >
     Movies 
   </h1>
+  <select
+      [ngModel]="selectedLang"
+      (ngModelChange)="selectLanguage($event)">
+      <option value="en">
+        {{ 'LANGUAGE.EN' | transloco }}
+    </option>
+      <option value="es">
+          {{ 'LANGUAGE.ES' | transloco }}
+      </option>
+  </select>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
 </div>
 <app-moviessearch></app-moviessearch>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-  <button mat-button routerLink="/register" *ngIf="!islogged">Registarse</button>
-  <button mat-button routerLink="/login" *ngIf="!islogged">Iniciar Sesión</button>
-  <button mat-button (click)=logout() *ngIf="islogged">Cerrar Sesión</button>
+  <button mat-button routerLink="/register" *ngIf="!islogged">{{'HEADER.REGISTER' | transloco}}</button>
+  <button mat-button routerLink="/login" *ngIf="!islogged">{{'HEADER.LOGIN' | transloco}}</button>
+  <button mat-button (click)=logout() *ngIf="islogged">{{'HEADER.LOGOUT' | transloco}}</button>
   <button mat-button  *ngIf="islogged">{{username}}</button>
 </div>
 <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
@@ -18,9 +28,9 @@
 
 </mat-toolbar>
 <mat-menu x-position="after" #menu="matMenu">
-  <button mat-menu-item routerLink="/login" *ngIf="!islogged">Iniciar Sesion</button>
-  <button mat-menu-item routerLink="/register" *ngIf="!islogged">Registarse</button>
-  <button mat-button (click)=logout() *ngIf="islogged">Cerrar Sesión</button>
+  <button mat-menu-item routerLink="/login" *ngIf="!islogged">{{'HEADER.LOGIN' | transloco}}</button>
+  <button mat-menu-item routerLink="/register" *ngIf="!islogged">{{'HEADER.REGISTER' | transloco}}</button>
+  <button mat-button (click)=logout() *ngIf="islogged">{{'HEADER.LOGOUT' | transloco}}</button>
   <!--<button mat-menu-item>Help</button>-->
 </mat-menu>
 <router-outlet></router-outlet>

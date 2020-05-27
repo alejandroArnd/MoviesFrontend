@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, AfterViewInit, DoCheck, AfterContentChecked, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,9 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit  {
   title = 'MoviesFrontend';
   username;
-  islogged
-  constructor( private router: Router, private authenticationService: AuthService){
+  islogged;
+  selectedLang='en';
+  constructor( private router: Router, private authenticationService: AuthService, private transalocoService:TranslocoService){
     this.authenticationService.islogged=this.authenticationService.isLoggedIn();
     this.islogged= this.authenticationService.islogged
   }
@@ -22,6 +24,10 @@ export class AppComponent implements OnInit  {
         this.username=response.username;
       })
     }
+  }
+
+  selectLanguage(language:string=this.selectedLang){
+    this.transalocoService.setActiveLang(language);
   }
 
   logout() {

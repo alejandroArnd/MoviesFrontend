@@ -1,49 +1,49 @@
 <div class="container" fxLayoutAlign="center center" fxLayout="column">
-    <div class="logo">Create a new account!</div>
+    <div class="logo">{{'FORM.CREATEACCOUNT' | transloco}}</div>
     <div class="register-item">
       <form [formGroup]="registerForm"  class="form form-register">
 
         <div class="form-field">
             <mat-form-field  fxFlex="600px" fxFlex.xs="300px">
-                <mat-label>Enter your Username</mat-label>
+                <mat-label>{{'FORM.ENTER.USERNAME' | transloco}}</mat-label>
                 <input matInput formControlName="username" placeholder="Username">
                 <mat-icon matSuffix>perm_identity</mat-icon>
                 <mat-error>
-                  Username required.
+                  {{'ERRORS.USERREQUIRED'|transloco}}
             </mat-error>
               </mat-form-field>
         </div>
         <div class="form-field">
             <mat-form-field fxFlex="600px" fxFlex.xs="300px">
-                <mat-label>Enter your email</mat-label>
+                <mat-label>{{'FORM.ENTER.EMAIL' | transloco}}</mat-label>
                 <input matInput formControlName="email" placeholder="pat@example.com" >
                 <mat-icon matSuffix>email</mat-icon>
                 <mat-error *ngIf="email.errors?.required">
-                  Email required.
+                  {{'ERRORS.EMAIL.REQUIRED'|transloco}}
                 </mat-error>
                 <mat-error *ngIf="email.errors?.pattern">
-                  Invalid Email.
+                  {{'ERRORS.EMAIL.INVALID'|transloco}}
                 </mat-error>
               </mat-form-field>
         </div>
 
         <div class="form-field">
         <mat-form-field fxFlex="600px" fxFlex.xs="300px">
-            <mat-label >Enter your password</mat-label>
+            <mat-label >{{'FORM.ENTER.PASSWORD' | transloco}}</mat-label>
             <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
             <button mat-button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
             <mat-error *ngIf="password.errors?.required">
-              Password required.
+              {{'ERRORS.PASSWORD.REQUIRED'|transloco}}
             </mat-error>
             <mat-error *ngIf="password.errors?.minlength">
-              Password min length 8.
+              {{'ERRORS.PASSWORD.MINLENGTH'|transloco}}
             </mat-error>
           </mat-form-field>
         </div>
         <div class="form-field">
-          <input type="submit" value="Register" (click)=onSubmit()>
+          <input type="submit" value="{{'HEADER.REGISTER' | transloco}}" (click)=onSubmit()>
         </div>
       </form>
     </div>

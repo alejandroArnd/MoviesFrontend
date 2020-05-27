@@ -1,0 +1,52 @@
+{
+    "LANGUAGE":{
+        "ES":"Español",
+        "EN":"Inglés" 
+    },
+    "HEADER":{
+        "LOGIN":"Iniciar Sesión",
+        "REGISTER":"Registarse",
+        "LOGOUT":"Cerrar Sesión"
+    },
+    "HOMEMOVIES":{
+        "LASTMOVIES":"Últimos Estrenos"
+    },
+    "MOVIESSEARCH":{
+        "ADVANCEDSEARCH":"Búsqueda Anvanzada > >"
+    },
+    "MOVIE":{
+        "DIRECTOR":"Director",
+        "DESCRIPTION":"Descripción",
+        "TITLE":"Título",
+        "DATE":"Fecha",
+        "GENRES":"Géneros"
+    },
+    "ERRORS":{
+        "TITLEREQUIRED":"Título requerido",
+        "CONTENTREQUIRED":"Contenido requerido",
+        "USERREQUIRED":"Nombre de usuario requerido",
+        "PASSWORD":{
+            "REQUIRED":"Contraseña requerida",
+            "MINLENGTH":"La contraseña ha de ser minimo de 8 carácteres"
+        },
+        "EMAIL":{
+            "REQUIRED":"Email requerido",
+            "INVALID":"Email no valido"
+        }
+    },
+    "CRITICS":{
+        "CONTENT":"Contenido",
+        "SELECTANOTE":"Selecciona una nota",
+        "REGISTERCOMMENTREVIEW":"Registrate aqui para poder comentar tu critica!",
+        "DOCRITIC":"Hacer crítica"
+    },
+    "FORM":{
+        "CREATEACCOUNT":"Crea una nueva cuenta!",
+        "ENTER":{
+            "USERNAME":"Introduce tu nombre de usuario",
+            "PASSWORD":"Introduce la contraseña",
+            "EMAIL":"Introduce el email"
+        }
+    }
+
+}
