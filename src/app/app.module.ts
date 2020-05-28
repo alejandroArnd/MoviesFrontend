@@ -30,7 +30,9 @@ import { CriticsComponent } from './components/movie/critics/critics.component'
 import { RefreshtokenInterceptor } from './interceptors/refreshtoken.interceptor';
 import { MatSelectModule } from '@angular/material/select';
 import { Pagenotfound404Component } from './components/pagenotfound404/pagenotfound404.component';
-import { TranslocoRootModule } from './transloco-root.module'
+import { TranslocoRootModule } from './transloco-root.module';
+import { AdminpageComponent } from './components/adminpage/adminpage.component';
+import { AdminuserspageComponent } from './components/adminpage/adminuserspage/adminuserspage.component';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { TranslocoRootModule } from './transloco-root.module'
     MovieComponent,
     CriticsComponent,
     Pagenotfound404Component,
-
+    AdminpageComponent,
+    AdminuserspageComponent,
   ],
   imports: [
     BrowserModule,
