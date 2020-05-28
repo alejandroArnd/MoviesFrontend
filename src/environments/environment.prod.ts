@@ -11,4 +11,5 @@ export const environment = {
   USERNAME:'username',
   CRITICS:'critics',
   DOCRITIC:'docritic',
+  ALLUSER:'allusers',
 };
