@@ -1,0 +1,12 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center" >
+<h1>Admin Page</h1>
+<div class="buttons-admin" fxLayout="row wrap" fxLayoutAlign="center center">
+<button mat-raised-button color="secondary" [routerLink]="['/admin','users']">Admin Users</button>
+<button mat-raised-button color="secondary" [routerLink]="['/admin','users']">Admin Critics</button>
+<button mat-raised-button color="secondary" [routerLink]="['/admin','users']">Admin Movies</button>
+<button mat-raised-button color="secondary" [routerLink]="['/admin','users']">Admin Genres</button>
+</div>
+</div>
+<div class="admin-panel">
+<router-outlet></router-outlet>
+</div>
