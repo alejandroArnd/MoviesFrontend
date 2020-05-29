@@ -24,6 +24,7 @@ import { ReplacePipe } from './pipes/replace.pipe';
 import { RegisterComponent } from './components/register/register.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 import { LoginComponent } from './components/login/login.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { CriticsComponent } from './components/movie/critics/critics.component'
@@ -72,6 +73,7 @@ import { AdminuserspageComponent } from './components/adminpage/adminuserspage/a
     MatDialogModule,
     MatSelectModule,
     TranslocoRootModule,
+    MatTableModule
   ],
   providers: [
     {

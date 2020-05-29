@@ -23,10 +23,10 @@ export class AppComponent implements OnInit  {
       this.authenticationService.sendGetUsername().subscribe((response:any)=>{
         console.log(response);
         this.username=response.username;
-      })
-      this.authenticationService.isUserLoggedAdmin().subscribe((data:any)=>{
-        this.authenticationService.roles=data.roles;
-        this.isAdmin=data.roles.includes('ROLE_ADMIN');
+        this.authenticationService.isUserLoggedAdmin().subscribe((data:any)=>{
+          this.authenticationService.roles=data.roles;
+          this.isAdmin=data.roles.includes('ROLE_ADMIN');
+        })
       })
     }
   }
