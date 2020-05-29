@@ -13,6 +13,7 @@ import { share } from 'rxjs/operators';
 export class AuthService {
   islogged=false;
   username;
+  roles;
   constructor(private httpclient: HttpClient,  private dialog: MatDialog ) { 
   }
 
@@ -31,6 +32,10 @@ export class AuthService {
 
   public sendGetUsername(){
     return this.httpclient.get(environment.REST_API_SERVER+environment.USERNAME)
+  }
+
+  public sendGetRoles(){
+    return this.httpclient.get(environment.REST_API_SERVER+environment.GETROLES)
   }
 
 
@@ -53,6 +58,10 @@ export class AuthService {
       return false;
     }
     return true;
+  }
+
+  public isUserLoggedAdmin(){
+    return this.sendGetRoles()
   }
 /*
   public checkIfTimeExpirationTokenIsOver(){

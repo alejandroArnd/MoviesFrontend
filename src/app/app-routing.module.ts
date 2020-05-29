@@ -9,6 +9,7 @@ import { MovieComponent } from './components/movie/movie.component';
 import { Pagenotfound404Component } from './components/pagenotfound404/pagenotfound404.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { AdminuserspageComponent } from './components/adminpage/adminuserspage/adminuserspage.component'
+import { AdminGuard } from './guard/admin.guard';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'details/:movie', component:MovieComponent},
   { path: 'register', component:RegisterComponent, canActivate:[AuthGuardGuard]},
   { path: 'login', component:LoginComponent, canActivate:[AuthGuardGuard]},
-  { path: 'admin', component:AdminpageComponent, children:[
+  { path: 'admin', canActivate:[AdminGuard], component:AdminpageComponent, children:[
     {
       path:'users',
       component:AdminuserspageComponent

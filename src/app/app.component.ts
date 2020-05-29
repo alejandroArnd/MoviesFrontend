@@ -12,6 +12,7 @@ export class AppComponent implements OnInit  {
   title = 'MoviesFrontend';
   username;
   islogged;
+  isAdmin=false;
   selectedLang='en';
   constructor( private router: Router, private authenticationService: AuthService, private transalocoService:TranslocoService){
     this.authenticationService.islogged=this.authenticationService.isLoggedIn();
@@ -23,6 +24,10 @@ export class AppComponent implements OnInit  {
         console.log(response);
         this.username=response.username;
       })
+      this.authenticationService.isUserLoggedAdmin().subscribe((data:any)=>{
+        this.authenticationService.roles=data.roles;
+        this.isAdmin=data.roles.includes('ROLE_ADMIN');
+      })
     }
   }
 
@@ -33,7 +38,8 @@ export class AppComponent implements OnInit  {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
-    this.islogged=false
+    this.islogged=false;
+    this.isAdmin=false;
 }
 }
 
