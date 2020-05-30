@@ -14,7 +14,7 @@ export class AuthService {
   islogged=false;
   username;
   roles;
-  constructor(private httpclient: HttpClient,  private dialog: MatDialog ) { 
+  constructor(private httpclient: HttpClient ) { 
   }
 
   public sendRegisterUserRequest(newUser){
@@ -73,16 +73,6 @@ export class AuthService {
   }
   */
 
-  public openErrorDialog(error){
-    const dialogRef=this.dialog.open(DialogComponent, {
-      data:{
-        message: error.error.message,
-      },
-      width: '450px',
-      height: '250px',
-      panelClass: 'back-dialog'
-    });
-  }
   
   public getExpiration() {
     const expiration = localStorage.getItem("expires_at");

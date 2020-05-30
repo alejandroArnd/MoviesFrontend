@@ -29,13 +29,9 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
   }
-   this.authService.sendLogInUser(this.loginForm.value).pipe(catchError(
-     error=>{
-     this.authService.openErrorDialog(error);
-     return throwError(error)})).subscribe(    
+   this.authService.sendLogInUser(this.loginForm.value).subscribe(    
      (data: any) => {
        this.authService.setSession(data);
-       this.authService.username=data.user
        window.location.href='/home'
        // this.router.navigate(['/home']);
       })

@@ -12,11 +12,13 @@ import { catchError, switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import * as moment from "moment";
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../components/dialog/dialog.component';
 
 @Injectable()
 export class RefreshtokenInterceptor implements HttpInterceptor {
 
-  constructor(private authservice: AuthService, private router: Router) {}
+  constructor(private authservice: AuthService, private router: Router,   private dialog: MatDialog) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
    const token = localStorage.getItem('token');
@@ -35,6 +37,7 @@ export class RefreshtokenInterceptor implements HttpInterceptor {
       if(err.status===404){
         this.handle404Error();
       }
+      this.openErrorDialog(err)
       return throwError( err );
     }));
   }
@@ -53,5 +56,16 @@ export class RefreshtokenInterceptor implements HttpInterceptor {
 }
   private handle404Error(){
     this.router.navigateByUrl('**', {skipLocationChange:true});
+  }
+
+  public openErrorDialog(error){
+    const dialogRef=this.dialog.open(DialogComponent, {
+      data:{
+        message: error.error.message,
+      },
+      width: '450px',
+      height: '250px',
+      panelClass: 'back-dialog'
+    });
   }
 }
