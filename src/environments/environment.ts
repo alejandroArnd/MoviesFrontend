@@ -17,6 +17,7 @@ export const environment = {
   DOCRITIC:'docritic',
   ALLUSER:'admin/allusers',
   GETROLES:'admin/getroles',
+  DELETEUSER:'admin/deleteuser',
 };
 
 /*

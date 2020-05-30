@@ -4,6 +4,8 @@ table{
 }
 .container{
     margin-top: 30px;
+    font-size: 18px;
+    color: white;
 }
 .container-table{
     width: 50%;
@@ -15,6 +17,7 @@ table{
 }
 .form-field ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
     background-color: white !important;
+    color: white !important;
   } 
 
   .form-field ::ng-deep .mat-form-field-label{

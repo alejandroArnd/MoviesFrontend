@@ -13,4 +13,8 @@ export class AdminService {
   public sendGetAllUsers(currentPage){
     return this.httpclient.post(environment.REST_API_SERVER+environment.ALLUSER,{'currentPage':currentPage});
   }
+
+  public sendDeleteUser(idUser){
+    return this.httpclient.post(environment.REST_API_SERVER+environment.DELETEUSER,{'id':idUser});
+  }
 }

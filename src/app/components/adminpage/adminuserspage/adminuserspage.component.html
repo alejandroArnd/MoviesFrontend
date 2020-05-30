@@ -74,6 +74,15 @@
           </mat-form-field>
         </div>
         <div class="form-field">
+          <mat-form-field>
+            <mat-label>Role</mat-label>
+            <mat-select [(value)]="roleSelected">
+              <mat-option value='ROLE_ADMIN'>ROLE_ADMIN</mat-option>
+              <mat-option value='ROLE_USER' selected>ROLE_USER</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-field">
           <input type="submit" value="Create User" (click)=onSubmit()>
         </div>
     </form>

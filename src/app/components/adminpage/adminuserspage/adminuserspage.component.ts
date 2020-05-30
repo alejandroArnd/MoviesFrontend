@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-adminuserspage',
@@ -15,7 +16,8 @@ export class AdminuserspageComponent implements OnInit {
   hide = true;
   totalItems;
   currentPage=1;
-  constructor(private adminService: AdminService, private formBuilder: FormBuilder) {
+  roleSelected='ROLE_USER';
+  constructor(private adminService: AdminService, private formBuilder: FormBuilder, private authService: AuthService) {
    }
 
   ngOnInit(): void {
@@ -33,9 +35,20 @@ export class AdminuserspageComponent implements OnInit {
     })
   }
   onSubmit() {
+    if (this.createUserForm.invalid) {
+      return;
+  }
+  console.log(this.roleSelected);
+  const newUser={...this.createUserForm.value,'role':this.roleSelected}
+  this.authService.sendRegisterUserRequest(newUser).subscribe(    
+    data => {
+      this.loadUsers(this.currentPage);
+   })
   }
   onDelete(user){
-    console.log(user)
+    this.adminService.sendDeleteUser(user.id).subscribe(()=>{
+      this.loadUsers(this.currentPage);
+    })
   }
   pageChange(newPage: number) {
     this.loadUsers(newPage);
