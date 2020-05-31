@@ -32,7 +32,7 @@
     <pagination-controls  responsive="true"  (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
 </div>
     <div class="container-form">
-    <form [formGroup]="createUserForm"  class="form form-register">
+    <form [formGroup]="createUserForm" #formDirective="ngForm"   class="form form-register">
 
         <div class="form-field">
             <mat-form-field   fxFlex="400px" fxFlex.xs="300px">
@@ -83,7 +83,7 @@
           </mat-form-field>
         </div>
         <div class="form-field">
-          <input type="submit" value="Create User" (click)=onSubmit()>
+          <input type="submit" value="Create User" (click)=onSubmit(formDirective)>
         </div>
     </form>
 </div>

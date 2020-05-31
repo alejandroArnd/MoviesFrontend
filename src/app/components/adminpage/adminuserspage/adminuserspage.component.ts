@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -34,15 +34,24 @@ export class AdminuserspageComponent implements OnInit {
       this.totalItems=response.maxItems;
     })
   }
-  onSubmit() {
+  onSubmit(formDirective: FormGroupDirective) {
     if (this.createUserForm.invalid) {
       return;
   }
-  console.log(this.roleSelected);
   const newUser={...this.createUserForm.value,'role':this.roleSelected}
   this.authService.sendRegisterUserRequest(newUser).subscribe(    
-    data => {
-      this.loadUsers(this.currentPage);
+    (response:any) => {
+      const newUsername=this.createUserForm.value.username;
+      const newEmail=this.createUserForm.value.email;
+      this.totalItems++;
+      formDirective.resetForm();
+     if(this.currentPage!==1){
+       console.log("holaaa");
+       this.loadUsers(this.currentPage)
+       return;
+     }
+     this.users.pop();
+     this.users=[{'id':response.id, 'username':newUsername,'email':newEmail,'roles':this.roleSelected},...this.users];
    })
   }
   onDelete(user){
