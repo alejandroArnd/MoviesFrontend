@@ -10,6 +10,7 @@ import { Pagenotfound404Component } from './components/pagenotfound404/pagenotfo
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { AdminuserspageComponent } from './components/adminpage/adminuserspage/adminuserspage.component'
 import { AdminGuard } from './guard/admin.guard';
+import { AdmingenrespageComponent } from './components/adminpage/admingenrespage/admingenrespage.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
     {
       path:'users',
       component:AdminuserspageComponent
+    },
+    {
+      path:'genres',
+      component:AdmingenrespageComponent
     }
   ]},
   { path: '**', component:Pagenotfound404Component}

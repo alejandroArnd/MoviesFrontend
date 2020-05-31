@@ -1,0 +1,25 @@
+table{
+    width: 90%;
+    margin-right: 20px;
+}
+.container{
+    margin-top: 30px;
+    font-size: 18px;
+    color: white;
+}
+.container-table{
+    width: 50%;
+}
+.container-form{
+    background: #424242;
+    box-shadow: 1px 3px 15px 3px rgba(0,0,0,0.75);
+    padding: 50px;
+}
+.form-field ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+    background-color: white !important;
+    color: white !important;
+  } 
+
+  .form-field ::ng-deep .mat-form-field-label{
+      color: white !important;
+  }

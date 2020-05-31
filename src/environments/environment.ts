@@ -18,6 +18,10 @@ export const environment = {
   ALLUSER:'admin/allusers',
   GETROLES:'admin/getroles',
   DELETEUSER:'admin/deleteuser',
+  ALLGENRES:'admin/allgenres',
+  CREATEGENRE:'admin/creategenre',
+  DELETEGENRE:'admin/deletegenre',
+  UPDATEGENRE:'admin/updategenre',
 };
 
 /*

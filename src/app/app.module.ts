@@ -34,6 +34,7 @@ import { Pagenotfound404Component } from './components/pagenotfound404/pagenotfo
 import { TranslocoRootModule } from './transloco-root.module';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { AdminuserspageComponent } from './components/adminpage/adminuserspage/adminuserspage.component';
+import { AdmingenrespageComponent } from './components/adminpage/admingenrespage/admingenrespage.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { AdminuserspageComponent } from './components/adminpage/adminuserspage/a
     Pagenotfound404Component,
     AdminpageComponent,
     AdminuserspageComponent,
+    AdmingenrespageComponent,
   ],
   imports: [
     BrowserModule,
