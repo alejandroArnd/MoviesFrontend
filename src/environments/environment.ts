@@ -22,6 +22,7 @@ export const environment = {
   CREATEGENRE:'admin/creategenre',
   DELETEGENRE:'admin/deletegenre',
   UPDATEGENRE:'admin/updategenre',
+  ALLCRITICS:'admin/allcritics'
 };
 
 /*

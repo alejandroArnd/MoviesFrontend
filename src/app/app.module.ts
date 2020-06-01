@@ -35,6 +35,7 @@ import { TranslocoRootModule } from './transloco-root.module';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { AdminuserspageComponent } from './components/adminpage/adminuserspage/adminuserspage.component';
 import { AdmingenrespageComponent } from './components/adminpage/admingenrespage/admingenrespage.component';
+import { AdmincriticspageComponent } from './components/adminpage/admincriticspage/admincriticspage.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { AdmingenrespageComponent } from './components/adminpage/admingenrespage
     AdminpageComponent,
     AdminuserspageComponent,
     AdmingenrespageComponent,
+    AdmincriticspageComponent,
   ],
   imports: [
     BrowserModule,

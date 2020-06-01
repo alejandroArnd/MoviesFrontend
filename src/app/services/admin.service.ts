@@ -30,4 +30,7 @@ export class AdminService {
   public sendUpdateGenre(genre){
     return this.httpclient.post(environment.REST_API_SERVER+environment.UPDATEGENRE,genre);
   }
+  public sendGetAllCritics(currentPage){
+    return this.httpclient.post(environment.REST_API_SERVER+environment.ALLCRITICS,{'currentPage':currentPage});
+  }
 }

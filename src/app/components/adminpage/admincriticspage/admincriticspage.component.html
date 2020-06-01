@@ -1,0 +1,80 @@
+<div class=" container" fxLayout="row wrap" fxLayoutAlign="center">
+    <div class="container-table" fxLayout="column" fxLayoutAlign="center center">
+    <table mat-table [dataSource]="critics | paginate: {
+        currentPage: currentPage,
+        itemsPerPage: 10,
+        totalItems: totalItems  
+      }"  class="mat-elevation-z8" >
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let critic">{{critic.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Title</th>
+            <td mat-cell *matCellDef="let critic">{{critic.title}}</td>
+        </ng-container>
+        <ng-container matColumnDef="note">
+            <th mat-header-cell *matHeaderCellDef>Note</th>
+            <td mat-cell *matCellDef="let critic">{{critic.note}}</td>
+        </ng-container>
+        <ng-container matColumnDef="content">
+            <th mat-header-cell *matHeaderCellDef>Content</th>
+            <td mat-cell *matCellDef="let critic">{{critic.content}}</td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <td mat-cell *matCellDef="let critic">{{critic.date}}</td>
+        </ng-container>
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef>Username</th>
+            <td mat-cell *matCellDef="let critic">{{critic.username}}</td>
+        </ng-container>
+        <ng-container matColumnDef="movie">
+            <th mat-header-cell *matHeaderCellDef>Movie</th>
+            <td mat-cell *matCellDef="let critic">{{critic.movietitle}}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let critic"><button mat-button (click)=onDelete(critic)>Delete</button></td>
+        </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <pagination-controls  responsive="true"  (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+</div>
+    <div class="container-form">
+        <form [formGroup]="criticForm" #formDirective="ngForm"  >
+    <div  class="form-field">
+        <mat-form-field fxFlex="400px" fxFlex.xs="100px">
+            <mat-label>{{'MOVIE.TITLE' | transloco}}</mat-label>
+            <input matInput  formControlName="title" placeholder="">
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error>
+              {{'ERRORS.TITLEREQUIRED' | transloco}}
+        </mat-error>
+          </mat-form-field>
+    </div>
+    <div  class="form-field">
+      <mat-form-field fxFlex="300px" fxFlex.xs="100px">
+        <mat-label>{{'CRITICS.SELECTANOTE'| transloco}}</mat-label>
+        <mat-select [(value)]="noteSelected">
+          <mat-option *ngFor='let note of notesAviables' [value]='note'>{{note}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div  class="form-field">
+        <mat-form-field class="mat-textarea" fxFlex="400px" fxFlex.xs="300px" appearance="outline">
+            <mat-label>{{'CRITICS.CONTENT'| transloco}}</mat-label>
+            <textarea matInput cdkTextareaAutosize  formControlName="content" placeholder="Ex. this is example..."></textarea>
+            <mat-error>
+              {{'ERRORS.CONTENTREQUIRED' | transloco}}
+          </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="btn-Submit"  fxLayoutAlign="end">
+        <input type="submit" value="{{'CRITICS.DOCRITIC' | transloco}}" (click)=onSubmit(formDirective)>
+      </div>
+      </form>
+</div>
+</div>
