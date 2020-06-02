@@ -46,7 +46,6 @@ export class AdminuserspageComponent implements OnInit {
       this.totalItems++;
       formDirective.resetForm();
      if(this.currentPage!==1){
-       console.log("holaaa");
        this.loadUsers(this.currentPage)
        return;
      }

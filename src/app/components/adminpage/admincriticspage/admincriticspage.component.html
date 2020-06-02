@@ -31,7 +31,7 @@
         </ng-container>
         <ng-container matColumnDef="movie">
             <th mat-header-cell *matHeaderCellDef>Movie</th>
-            <td mat-cell *matCellDef="let critic">{{critic.movietitle}}</td>
+            <td mat-cell *matCellDef="let critic">{{critic.movie}}</td>
         </ng-container>
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef>Actions</th>
@@ -42,7 +42,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     <pagination-controls  responsive="true"  (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
-</div>
+    </div>
     <div class="container-form">
         <form [formGroup]="criticForm" #formDirective="ngForm"  >
     <div  class="form-field">
@@ -71,6 +71,21 @@
               {{'ERRORS.CONTENTREQUIRED' | transloco}}
           </mat-error>
         </mat-form-field>
+    </div>
+    <div class="form-field">
+        <mat-form-field class="example-full-width">
+            <input type="text"
+                   placeholder="Pick one"
+                   aria-label="Number"
+                   matInput
+                   formControlName="movie"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredMovie | async" [value]="option.title">
+                {{option.title}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
     </div>
     <div class="btn-Submit"  fxLayoutAlign="end">
         <input type="submit" value="{{'CRITICS.DOCRITIC' | transloco}}" (click)=onSubmit(formDirective)>

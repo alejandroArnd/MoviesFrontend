@@ -33,4 +33,7 @@ export class AdminService {
   public sendGetAllCritics(currentPage){
     return this.httpclient.post(environment.REST_API_SERVER+environment.ALLCRITICS,{'currentPage':currentPage});
   }
+  public sendDeleteCritic(idCritic){
+    return this.httpclient.delete(environment.REST_API_SERVER+environment.DELETECRITIC+'/'+idCritic);
+  }
 }

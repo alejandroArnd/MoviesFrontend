@@ -13,8 +13,7 @@ export class CriticsmovieService {
   public sendGetCriticsByMovieTitle(currentPage, title){
     return this.httpclient.post(environment.REST_API_SERVER+environment.CRITICS,{'currentPage':currentPage, 'title':title});
   }
-  public sendInsertNewCritic(critic, titleMovie){
-    critic={...critic,movie:titleMovie}
+  public sendInsertNewCritic(critic){
     return this.httpclient.post(environment.REST_API_SERVER+environment.DOCRITIC,critic);
   }
 }

@@ -10,7 +10,11 @@ export class MoviesService {
   constructor( private httpclient: HttpClient) { }
 
   public sendGetRecentMoviesRequest(){
-    return this.httpclient.get(environment.REST_API_SERVER+environment.RECENTMOVIES)
+    return this.httpclient.get(environment.REST_API_SERVER+environment.RECENTMOVIES);
+  }
+
+  public sendAutocompletMovies(title){
+    return this.httpclient.post(environment.REST_API_SERVER+environment.AUTOCOMPLETEMOVIE,{'title':title});
   }
 
 }
