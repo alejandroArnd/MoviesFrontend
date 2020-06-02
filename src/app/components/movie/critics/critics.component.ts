@@ -45,26 +45,26 @@ export class CriticsComponent implements OnInit{
     if (this.criticsForm.invalid) {
       return;
   }
-  let critic={...this.criticsForm.value,note:this.selected,date:moment().format('YYYY-MM-DD HH:mm:ss')}
+  let critic={...this.criticsForm.value,note:this.selected,date:moment().format('YYYY-MM-DD HH:mm:ss'), movie:this.titleOfMovie}
+  let criticDuplicate=[]
   if(this.currentPage===1){
     this.authenticationService.sendGetUsername().subscribe((response:any)=>{
       critic={...critic,username:response.username};
-      const criticDuplicate=this.critics.slice();
+      criticDuplicate=this.critics.slice();
       this.critics.pop();
       this.critics.unshift(critic);
-      this.criticsService.sendInsertNewCritic(critic,this.titleOfMovie).pipe(catchError(
-        error=>{
-          this.critics=criticDuplicate;
-        return throwError(error);
-      }))
     });
-        return;
     }
-    this.criticsService.sendInsertNewCritic(critic,this.titleOfMovie).pipe(catchError(
-      error=>{
+    this.criticsService.sendInsertNewCritic(critic).pipe(catchError(
+      error=>{ 
+        if(this.currentPage===1){
+        this.critics=criticDuplicate;
+        }
       return throwError(error);
     })).subscribe(()=>{
+      if(this.currentPage!==1){
       this.loadCriticsMovie(this.currentPage);
+      }
       })
       };
 
