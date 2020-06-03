@@ -36,7 +36,11 @@ import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { AdminuserspageComponent } from './components/adminpage/adminuserspage/adminuserspage.component';
 import { AdmingenrespageComponent } from './components/adminpage/admingenrespage/admingenrespage.component';
 import { AdmincriticspageComponent } from './components/adminpage/admincriticspage/admincriticspage.component';
-import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AdminmoviespageComponent } from './components/adminpage/adminmoviespage/adminmoviespage.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 
 @NgModule({
@@ -57,6 +61,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
     AdminuserspageComponent,
     AdmingenrespageComponent,
     AdmincriticspageComponent,
+    AdminmoviespageComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +85,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
     TranslocoRootModule,
     MatTableModule,
     MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
   ],
   providers: [
     {
