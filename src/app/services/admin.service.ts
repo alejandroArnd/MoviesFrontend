@@ -36,4 +36,7 @@ export class AdminService {
   public sendDeleteCritic(idCritic){
     return this.httpclient.delete(environment.REST_API_SERVER+environment.DELETECRITIC+'/'+idCritic);
   }
+  public sendGetAllMovies(currentPage){
+    return this.httpclient.post(environment.REST_API_SERVER+environment.ALLMOVIES,{'currentPage':currentPage});
+  }
 }

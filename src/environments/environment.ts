@@ -25,6 +25,7 @@ export const environment = {
   ALLCRITICS:'admin/allcritics',
   AUTOCOMPLETEMOVIE:'autocompletemovie',
   DELETECRITIC:'admin/deletecritic',
+  ALLMOVIES:'admin/allmovies',
 };
 
 /*
