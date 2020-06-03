@@ -12,6 +12,7 @@ import { AdminuserspageComponent } from './components/adminpage/adminuserspage/a
 import { AdminGuard } from './guard/admin.guard';
 import { AdmingenrespageComponent } from './components/adminpage/admingenrespage/admingenrespage.component';
 import { AdmincriticspageComponent } from './components/adminpage/admincriticspage/admincriticspage.component';
+import { AdminmoviespageComponent } from './components/adminpage/adminmoviespage/adminmoviespage.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
     {
       path:'critics',
       component:AdmincriticspageComponent
+    },
+    {
+      path:'movies',
+      component:AdminmoviespageComponent
     }
   ]},
   { path: '**', component:Pagenotfound404Component}

@@ -1,0 +1,45 @@
+table{
+    width: 100%;
+    margin-right: 20px;
+}
+
+.container{
+    margin-top: 30px;
+    font-size: 18px;
+    color: white;
+    height: auto;
+}
+.container-table{
+    width: 65%;
+    height: auto;
+    padding-bottom: 40px;
+}
+.container-form{
+    background: #424242;
+    box-shadow: 1px 3px 15px 3px rgba(0,0,0,0.75);
+    padding: 20px;
+    height: 20%;
+}
+.image{
+    width: 110%;
+    height: 110%;
+}
+.form-field ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+    background-color: white !important;
+    color: white !important;
+  } 
+
+  .form-field ::ng-deep .mat-form-field-label{
+      color: white !important;
+  }
+  .mat-row {
+    height: auto;
+  }
+  
+  .mat-cell {
+    padding: 15px 15px 10px 0;
+  }
+
+  .mat-header-cell{
+     padding-right: 20px;
+  }
