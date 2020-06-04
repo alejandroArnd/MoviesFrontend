@@ -69,14 +69,19 @@
         </div>
         <div class="form-field">
         <mat-form-field>
-            <mat-label>Input disabled</mat-label>
+            <mat-label>Date</mat-label>
             <input matInput [matDatepicker]="picker" disabled>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker disabled="false"></mat-datepicker>
           </mat-form-field>
         </div>
         <div class="form-field">
-            <input type="file"  multiple="multiple" (change)="change($event)">
+            <button mat-button color="warn" (click)="onClick()">  
+                <mat-icon>file_upload</mat-icon>  
+                Upload  
+            </button>  
+          <input type="file" #fileInput id="uploadImage" (change)="onFileChange($event)" name="uploadImage" accept="image/*" style="display:none;" />
+          <img [src]="imgURL" height="200" *ngIf="imgURL">
         </div>
         <div class="form-field" >
           <input type="submit" value="Create movie" (click)=onSubmit(formDirective)>
