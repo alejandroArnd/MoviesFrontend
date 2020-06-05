@@ -22,4 +22,5 @@ export const environment = {
   AUTOCOMPLETEMOVIE:'autocompletemovie',
   DELETECRITIC:'admin/deletecritic',
   ALLMOVIES:'admin/allmovies',
+  CREATEMOVIE:'admin/createmovie',
 };

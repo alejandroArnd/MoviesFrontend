@@ -39,4 +39,7 @@ export class AdminService {
   public sendGetAllMovies(currentPage){
     return this.httpclient.post(environment.REST_API_SERVER+environment.ALLMOVIES,{'currentPage':currentPage});
   }
+  public sendCreateMovie(movie){
+    return this.httpclient.post(environment.REST_API_SERVER+environment.CREATEMOVIE,movie);
+  }
 }
