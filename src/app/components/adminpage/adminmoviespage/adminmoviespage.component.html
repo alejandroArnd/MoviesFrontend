@@ -35,7 +35,7 @@
         </ng-container>
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef>Actions</th>
-            <td mat-cell *matCellDef="let movie"><button mat-button (click)=onDelete(movie)>Delete</button></td>
+            <td mat-cell *matCellDef="let movie"><button mat-button (click)=onDelete(movie)>Delete</button><button mat-button (click)=onSetMovieInForm(movie)>Update</button></td>
         </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -45,7 +45,17 @@
 </div>
     <div class="container-form">
     <form [formGroup]="movieForm"  #formDirective="ngForm" >
-   
+
+        <div class="form-field" *ngIf="aMovieToUpdate">
+            <input type="button" value="Show form to create" (click)=putFormCreateMovie(formDirective)>
+          </div>
+
+        <div class="form-field" *ngIf="aMovieToUpdate" >
+            <mat-form-field   fxFlex="400px" fxFlex.xs="300px">
+                <mat-label>Id Movie</mat-label>
+                <input matInput formControlName="id" placeholder="Movie" readonly=true>
+              </mat-form-field>
+        </div> 
         <div class="form-field">
             <mat-form-field   fxFlex="400px" fxFlex.xs="300px">
                 <mat-label>Enter Title</mat-label>
@@ -61,10 +71,9 @@
               </mat-form-field>
         </div>
         <div class="form-field">
-            <mat-form-field   fxFlex="400px" fxFlex.xs="300px">
+            <mat-form-field   fxFlex="400px" fxFlex.xs="300px" appearance="outline">
                 <mat-label>Enter Description</mat-label>
-                <input formControlName="description" matInput  placeholder="Description">
-                <mat-icon matSuffix>category</mat-icon>
+                <textarea matInput cdkTextareaAutosize  formControlName="description" placeholder="Ex. this is example..."></textarea>
               </mat-form-field>
         </div>
         <div class="form-field">
@@ -91,9 +100,12 @@
                 </mat-select>
               </mat-form-field>              
         </div>
-        <div class="form-field" >
+        <div class="form-field" *ngIf="!aMovieToUpdate" >
           <input type="submit" value="Create movie" (click)=onSubmit(formDirective)>
         </div>
+        <div class="form-field" *ngIf="aMovieToUpdate">
+            <input type="submit" value="Update genre" (click)=onUpdate(formDirective)>
+          </div>
     </form>
 </div>
 </div>

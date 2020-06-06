@@ -42,4 +42,7 @@ export class AdminService {
   public sendCreateMovie(movie){
     return this.httpclient.post(environment.REST_API_SERVER+environment.CREATEMOVIE,movie);
   }
+  public sendUpdateMovie(movie){
+    return this.httpclient.put(environment.REST_API_SERVER+environment.UPDATEMOVIE,movie);
+  }
 }

@@ -23,4 +23,5 @@ export const environment = {
   DELETECRITIC:'admin/deletecritic',
   ALLMOVIES:'admin/allmovies',
   CREATEMOVIE:'admin/createmovie',
+  UPDATEMOVIE:'admin/updatemovie',
 };
