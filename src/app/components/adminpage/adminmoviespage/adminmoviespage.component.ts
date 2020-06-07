@@ -102,7 +102,9 @@ export class AdminmoviespageComponent implements OnInit {
     })
   }
   onDelete(movie){
-
+    this.adminService.sendDeleteMovie(movie.id).subscribe(()=>{
+      this.loadMovies(this.currentPage);
+    })
   }
   onClick(){
     this.fileInput.nativeElement.click()

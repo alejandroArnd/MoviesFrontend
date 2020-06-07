@@ -45,4 +45,7 @@ export class AdminService {
   public sendUpdateMovie(movie){
     return this.httpclient.put(environment.REST_API_SERVER+environment.UPDATEMOVIE,movie);
   }
+  public sendDeleteMovie(idMovie){
+    return this.httpclient.delete(environment.REST_API_SERVER+environment.DELETEMOVIE+'/'+idMovie);
+  }
 }

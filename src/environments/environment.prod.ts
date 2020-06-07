@@ -24,4 +24,5 @@ export const environment = {
   ALLMOVIES:'admin/allmovies',
   CREATEMOVIE:'admin/createmovie',
   UPDATEMOVIE:'admin/updatemovie',
+  DELETEMOVIE:'admin/deletemovie'
 };
