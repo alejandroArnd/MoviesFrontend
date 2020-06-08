@@ -2,7 +2,7 @@
     <div class="container-table" fxLayout="column" fxLayoutAlign="center center">
     <table mat-table [dataSource]="movies | paginate: {
         currentPage: currentPage,
-        itemsPerPage: 10,
+        itemsPerPage: 4,
         totalItems: totalItems  
       }"  class="mat-elevation-z8" >
         <ng-container matColumnDef="id">

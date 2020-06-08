@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'details/:movie', component:MovieComponent},
   { path: 'register', component:RegisterComponent, canActivate:[AuthGuardGuard]},
   { path: 'login', component:LoginComponent, canActivate:[AuthGuardGuard]},
-  { path: 'admin', canActivate:[AdminGuard], component:AdminpageComponent, children:[
+  { path: 'admin', canActivate:[AdminGuard],  component:AdminpageComponent, children:[
     {
       path:'users',
       component:AdminuserspageComponent
