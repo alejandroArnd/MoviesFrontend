@@ -34,7 +34,6 @@ import { Pagenotfound404Component } from './components/pagenotfound404/pagenotfo
 import { TranslocoRootModule } from './transloco-root.module';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { AdminuserspageComponent } from './components/adminpage/adminuserspage/adminuserspage.component';
-import { AdmingenrespageComponent } from './components/adminpage/admingenrespage/admingenrespage.component';
 import { AdmincriticspageComponent } from './components/adminpage/admincriticspage/admincriticspage.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AdminmoviespageComponent } from './components/adminpage/adminmoviespage/adminmoviespage.component';
@@ -59,7 +58,6 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
     Pagenotfound404Component,
     AdminpageComponent,
     AdminuserspageComponent,
-    AdmingenrespageComponent,
     AdmincriticspageComponent,
     AdminmoviespageComponent,
   ],
