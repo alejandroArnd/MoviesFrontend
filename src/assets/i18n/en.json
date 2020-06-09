@@ -54,10 +54,20 @@
         }
     },
     "ADMIN":{
+        "PAGE":"Admin Page",
+        "USERS":"Admin users",
+        "CRITICS":"Admin critics",
+        "MOVIES":"Admin movies",
         "TABLE":{
             "ACTIONS":"Actions",
             "DELETE":"Delete",
-            "UPDATE":"Update"
+            "UPDATE":"Update",
+            "TITLE":"Title",
+            "NOTE":"Note",
+            "USERNAME":"Username",
+            "CONTENT":"Content",
+            "MOVIE":"Movie",
+            "DATE":"Date"
         },
         "FORM":{
             "MOVIES":{

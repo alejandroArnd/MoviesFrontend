@@ -10,31 +10,31 @@
             <td mat-cell *matCellDef="let critic">{{critic.id}}</td>
         </ng-container>
         <ng-container matColumnDef="title">
-            <th mat-header-cell *matHeaderCellDef>Title</th>
+            <th mat-header-cell *matHeaderCellDef>>{{'ADMIN.TABLE.TITLE' | transloco}}</th>
             <td mat-cell *matCellDef="let critic">{{critic.title}}</td>
         </ng-container>
         <ng-container matColumnDef="note">
-            <th mat-header-cell *matHeaderCellDef>Note</th>
+            <th mat-header-cell *matHeaderCellDef>>{{'ADMIN.TABLE.NOTE' | transloco}}</th>
             <td mat-cell *matCellDef="let critic">{{critic.note}}</td>
         </ng-container>
         <ng-container matColumnDef="content">
-            <th mat-header-cell *matHeaderCellDef>Content</th>
+            <th mat-header-cell *matHeaderCellDef>>{{'ADMIN.TABLE.CONTENT' | transloco}}</th>
             <td mat-cell *matCellDef="let critic">{{critic.content}}</td>
         </ng-container>
         <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <th mat-header-cell *matHeaderCellDef>>{{'ADMIN.TABLE.DATE' | transloco}}</th>
             <td mat-cell *matCellDef="let critic">{{critic.date}}</td>
         </ng-container>
         <ng-container matColumnDef="username">
-            <th mat-header-cell *matHeaderCellDef>Username</th>
+            <th mat-header-cell *matHeaderCellDef>>{{'ADMIN.TABLE.USERNAME' | transloco}}</th>
             <td mat-cell *matCellDef="let critic">{{critic.username}}</td>
         </ng-container>
         <ng-container matColumnDef="movie">
-            <th mat-header-cell *matHeaderCellDef>Movie</th>
+            <th mat-header-cell *matHeaderCellDef>>{{'ADMIN.TABLE.MOVIE' | transloco}}</th>
             <td mat-cell *matCellDef="let critic">{{critic.movie}}</td>
         </ng-container>
         <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <th mat-header-cell *matHeaderCellDef>>{{'ADMIN.TABLE.ACTIONS' | transloco}}</th>
             <td mat-cell *matCellDef="let critic"><button mat-button (click)=onDelete(critic)>Delete</button></td>
         </ng-container>
 

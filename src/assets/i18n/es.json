@@ -54,10 +54,20 @@
         }
     },
     "ADMIN":{
+        "PAGE":"Página de Administración",
+        "USERS":"Administrar usuarios",
+        "CRITICS":"Administrar criticas",
+        "MOVIES":"Administrar películas",
         "TABLE":{
             "ACTIONS":"Acciones",
             "DELETE":"Borrar",
-            "UPDATE":"Actualizar"
+            "UPDATE":"Actualizar",
+            "TITLE":"Titulo",
+            "NOTE":"Nota",
+            "USERNAME":"Nombre de usuario",
+            "CONTENT":"Contenido",
+            "MOVIE":"Película",
+            "DATE":"Fecha"
         },
         "FORM":{
             "MOVIES":{

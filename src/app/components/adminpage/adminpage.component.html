@@ -1,9 +1,9 @@
 <div class="container" fxLayout="column" fxLayoutAlign="center center" >
-<h1>Admin Page</h1>
+<h1>{{'ADMIN.PAGE' | transloco}}</h1>
 <div class="buttons-admin" fxLayout="row wrap" fxLayoutAlign="center center">
-<button mat-raised-button color="secondary"  [routerLink]="['/admin','users']">Admin Users</button>
-<button mat-raised-button color="secondary"  [routerLink]="['/admin','critics']">Admin Critics</button>
-<button mat-raised-button color="secondary"  [routerLink]="['/admin','movies']">Admin Movies</button>
+<button mat-raised-button color="secondary"  [routerLink]="['/admin','users']">{{'ADMIN.USERS' | transloco}}s</button>
+<button mat-raised-button color="secondary"  [routerLink]="['/admin','critics']">{{'ADMIN.CRITICS' | transloco}}</button>
+<button mat-raised-button color="secondary"  [routerLink]="['/admin','movies']">{{'ADMIN.MOVIES' | transloco}}</button>
 </div>
 </div>
 <div class="admin-panel">
