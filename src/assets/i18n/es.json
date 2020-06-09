@@ -24,6 +24,10 @@
     },
     "ERRORS":{
         "TITLEREQUIRED":"Título requerido",
+        "DESCRIPTIONREQUIRED":"Descripción requerida ",
+        "DIRECTORREQUIRED":"Director requerido",
+        "GENRESREQUIRED":"Géneros requeridos",
+        "RELEASEDATEREQUIRED":"Fecha de lanzamiento requerido",
         "CONTENTREQUIRED":"Contenido requerido",
         "USERREQUIRED":"Nombre de usuario requerido",
         "PASSWORD":{
