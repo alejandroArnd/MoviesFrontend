@@ -19,7 +19,8 @@
         "DESCRIPTION":"Description",
         "TITLE":"Title",
         "DATE":"Date",
-        "GENRES":"Genres"
+        "GENRES":"Genres",
+        "PHOTO":"Photo"
     },
     "ERRORS":{
         "TITLEREQUIRED":"Title required",
@@ -47,5 +48,26 @@
             "PASSWORD":"Enter your password",
             "EMAIL":"Enter your email"
         }
+    },
+    "ADMIN":{
+        "TABLE":{
+            "ACTIONS":"Actions",
+            "DELETE":"Delete",
+            "UPDATE":"Update"
+        },
+        "FORM":{
+            "MOVIES":{
+                "IDMOVIE":"Id Movie",
+                "TITLE":"Enter title",
+                "DIRECTOR":"Enter director",
+                "DESCRIPTION":"Enter description",
+                "DATE":"Release date",
+                "IMAGE":"Choose a image",
+                "GENRES":"Genres",
+                "CREATEMOVIE":"Create Movie",
+                "UPDATEMOVIE":"Update Movie",
+                "SHOWCREATEMOVIE":"Show create movie form"
+            }
+         }
     }
 }

@@ -19,7 +19,8 @@
         "DESCRIPTION":"Descripción",
         "TITLE":"Título",
         "DATE":"Fecha",
-        "GENRES":"Géneros"
+        "GENRES":"Géneros",
+        "PHOTO":"Foto"
     },
     "ERRORS":{
         "TITLEREQUIRED":"Título requerido",
@@ -46,6 +47,27 @@
             "USERNAME":"Introduce tu nombre de usuario",
             "PASSWORD":"Introduce la contraseña",
             "EMAIL":"Introduce el email"
+        }
+    },
+    "ADMIN":{
+        "TABLE":{
+            "ACTIONS":"Acciones",
+            "DELETE":"Borrar",
+            "UPDATE":"Actualizar"
+        },
+        "FORM":{
+            "MOVIES":{
+                "IDMOVIE":"Id Película",
+                "TITLE":"Introduce el título",
+                "DIRECTOR":"Introduce el director",
+                "DESCRIPTION":"Introduce la descripción",
+                "DATE":"Fecha de lanzamiento",
+                "IMAGE":"Escoge una imagen",
+                "GENRES":"Géneros",
+                "CREATEMOVIE":"Crear Película",
+                "UPDATEMOVIE":"Actualizar Película",
+                "SHOWCREATEMOVIE":"Mostrar formulario de creación de peliculas"
+            }
         }
     }
 
