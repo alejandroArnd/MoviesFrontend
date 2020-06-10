@@ -24,7 +24,7 @@
             <td><span>{{'MOVIE.GENRES' | transloco}}:</span></td>
             <td fxLayoutAlign="start start" fxLayout="row wrap">
             <div fxLayoutAlign="start start" fxLayout="row wrap" *ngFor="let genre of detailsMovie.genres;">
-                <p>{{genre.name}}<span></span></p>
+                <p>{{'GENRES.'+ genre.name | replace | transloco}}<span></span></p>
             </div>
             </td>
         </tr>

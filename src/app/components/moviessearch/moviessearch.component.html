@@ -13,6 +13,6 @@
 </div>
 <div *ngIf = '!isShow' class="balloon" fxLayout.xs="column" fxLayout="row warp" fxLayoutAlign="start">
   <div fxFlex="0 1 calc(30% - 10px)" fxFlex.xs=50px *ngFor="let genre of genres">
-    <mat-checkbox #checkBox value="{{genre.name}}" (change)="changeValueCheckedCheckBox(checkBox)" [(ngModel)]="genre.checked" >{{genre.name}}</mat-checkbox>
+    <mat-checkbox #checkBox value="{{genre.name}}" (change)="changeValueCheckedCheckBox(checkBox)" [(ngModel)]="genre.checked" >{{'GENRES.'+ genre.name | replace | transloco}}</mat-checkbox>
   </div>
 </div>

@@ -83,5 +83,26 @@
                 "SHOWCREATEMOVIE":"Show create movie form"
             }
          }
+    },
+    "GENRES":{
+        "ACCIÓN":"Action",
+        "AVENTURA":"Adventure",
+        "ANIMACIÓN":"Animation",
+        "COMEDIA":"Comedy",
+        "CRIMEN":"Crime",
+        "DOCUMENTAL":"Documentary film",
+        "DRAMA":"Drama",
+        "FAMILIA":"Family",
+        "FANTASÍA":"Fantasy",
+        "HISTORIA":"History",
+        "TERROR":"Terror",
+        "MÚSICA":"Music",
+        "MISTERIO":"Mystery",
+        "ROMANCE":"Romance",
+        "CIENCIA_FICCIÓN":"Science fiction",
+        "PELÍCULA_DE_TV":"TV movie",
+        "SUSPENSE":"Suspense",
+        "BÉLICA":"War",
+        "WESTERN":"Western"
     }
 }

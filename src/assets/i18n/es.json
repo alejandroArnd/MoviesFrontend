@@ -83,6 +83,27 @@
                 "SHOWCREATEMOVIE":"Mostrar formulario de creación de peliculas"
             }
         }
+    },
+    "GENRES":{
+        "ACCIÓN":"Acción",
+        "AVENTURA":"Aventura",
+        "ANIMACIÓN":"Animación",
+        "COMEDIA":"Comedia",
+        "CRIMEN":"Crimen",
+        "DOCUMENTAL":"Documental",
+        "DRAMA":"Drama",
+        "FAMILIA":"Familia",
+        "FANTASÍA":"Fantasía",
+        "HISTORIA":"Historia",
+        "TERROR":"Terror",
+        "MÚSICA":"Música",
+        "MISTERIO":"Misterio",
+        "ROMANCE":"Romance",
+        "CIENCIA_FICCIÓN":"Ciencia Ficción",
+        "PELÍCULA_DE_TV":"Película de TV",
+        "SUSPENSE":"Suspense",
+        "BÉLICA":"Bélica",
+        "WESTERN":"Western"
     }
 
 }
