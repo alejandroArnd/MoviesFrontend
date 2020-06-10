@@ -47,7 +47,7 @@ export class AdminmoviespageComponent implements OnInit {
 
   loadGenres(){
     this.searchService.sendGetAllGenresRequest().subscribe((response:any)=>{
-      this.genres=response.data  
+      this.genres=response 
     })
   }
 

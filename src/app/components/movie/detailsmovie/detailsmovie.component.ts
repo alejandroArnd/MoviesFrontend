@@ -15,7 +15,7 @@ export class DetailsmovieComponent implements OnInit {
 
   ngOnInit(): void {
    this.searchService.sendPostDetailsMovie(this.titleOfMovie).subscribe((response:any)=>{
-     this.detailsMovie=response.data;
+     this.detailsMovie=response;
    })
   }
 

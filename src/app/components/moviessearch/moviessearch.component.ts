@@ -44,13 +44,9 @@ export class MoviessearchComponent implements OnInit {
     genreChange.checked=checkbox.checked;
   }
 
-  changeValueCheckedWhenInitComponent(genreOfDataBase){
-
-  }
-
   ngOnInit(): void {
     this.searchService.sendGetAllGenresRequest().subscribe((_genres:any)=>{
-      this.genres=_genres.data.map(genre=>{return {'name':genre.name,'checked':false }});
+      this.genres=_genres.map(genre=>{return {'name':genre.name,'checked':false }});
       })
     }
   }
