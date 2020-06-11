@@ -61,18 +61,9 @@ export class AdmincriticspageComponent implements OnInit {
       return;
     }
     let critic={...this.criticForm.value,note:this.noteSelected,date:moment().format('YYYY-MM-DD HH:mm:ss')}
-    this.authenticationService.sendGetUsername().subscribe((response:any)=>{
-      critic={...critic,username:response.username};
-    })
     this.criticService.sendInsertNewCritic(critic).subscribe((response:any)=>{
-      this.totalItems++;
       formDirective.resetForm();
-      if(this.currentPage!==1){
-        this.loadCritics(this.currentPage);
-        return;
-      }
-        this.critics.pop();
-        this.critics=[{id:response.id,...critic},...this.critics];
+      this.loadCritics(this.currentPage);
        })
   }
   pageChange(newPage: number) {

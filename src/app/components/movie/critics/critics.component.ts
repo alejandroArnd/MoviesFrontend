@@ -47,26 +47,26 @@ export class CriticsComponent implements OnInit{
   }
   let critic={...this.criticsForm.value,note:this.selected,date:moment().format('YYYY-MM-DD HH:mm:ss'), movie:this.titleOfMovie}
   let criticDuplicate=[]
-  if(this.currentPage===1){
-    this.authenticationService.sendGetUsername().subscribe((response:any)=>{
-      critic={...critic,username:response.username};
-      criticDuplicate=this.critics.slice();
-      this.critics.pop();
-      this.critics.unshift(critic);
-    });
-    }
-    this.criticsService.sendInsertNewCritic(critic).pipe(catchError(
-      error=>{ 
-        if(this.currentPage===1){
-        this.critics=criticDuplicate;
-        }
-      return throwError(error);
-    })).subscribe(()=>{
-      if(this.currentPage!==1){
+  if(this.currentPage!==1){
+    this.criticsService.sendInsertNewCritic(critic).subscribe(()=>{
       this.loadCriticsMovie(this.currentPage);
-      }
-      })
-      };
+    })
+    return 
+  }
+  this.authenticationService.sendGetUsername().subscribe((response:any)=>{
+    critic={...critic,username:response.username};
+    criticDuplicate=this.critics.slice();
+    this.critics.pop();
+    this.critics.unshift(critic);
+    this.totalItems++;
+  });
+  this.criticsService.sendInsertNewCritic(critic).pipe(catchError(
+    error=>{ 
+      this.totalItems--;
+      this.critics=criticDuplicate;
+    return throwError(error);
+  })).subscribe();
+ };
 
   pageChange(newPage: number) {
     this.loadCriticsMovie(newPage);

@@ -41,16 +41,8 @@ export class AdminuserspageComponent implements OnInit {
   const newUser={...this.createUserForm.value,'role':this.roleSelected}
   this.authService.sendRegisterUserRequest(newUser).subscribe(    
     (response:any) => {
-      const newUsername=this.createUserForm.value.username;
-      const newEmail=this.createUserForm.value.email;
-      this.totalItems++;
       formDirective.resetForm();
-     if(this.currentPage!==1){
-       this.loadUsers(this.currentPage)
-       return;
-     }
-     this.users.pop();
-     this.users=[{'id':response.id, 'username':newUsername,'email':newEmail,'roles':this.roleSelected},...this.users];
+      this.loadUsers(this.currentPage);
    })
   }
   onDelete(user){
