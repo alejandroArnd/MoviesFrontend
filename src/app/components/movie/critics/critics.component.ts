@@ -25,7 +25,6 @@ export class CriticsComponent implements OnInit{
   }
   ngOnInit(): void {
     this.islogged=this.authenticationService.islogged;
-    console.log(this.islogged);
     this.criticsForm = this.formBuilder.group({
       title:['', Validators.required],
       content:['',Validators.required],

@@ -95,7 +95,6 @@ export class AdminmoviespageComponent implements OnInit {
       return;
     }
     this.movieForm.controls['date'].setValue(moment(this.movieForm.controls['date'].value).format('YYYY-MM-DD HH:mm:ss'));
-    console.log(this.movieForm.value);
     this.adminService.sendUpdateMovie(this.movieForm.value).subscribe(()=>{
       this.loadMovies(this.currentPage);
       this.putFormCreateMovie(formDirective);

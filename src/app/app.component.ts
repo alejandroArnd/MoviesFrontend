@@ -21,7 +21,6 @@ export class AppComponent implements OnInit  {
   ngOnInit(){
     if(localStorage.getItem('token')){
       this.authenticationService.sendGetUsername().subscribe((response:any)=>{
-        console.log(response);
         this.username=response.username;
         this.authenticationService.isUserLoggedAdmin().subscribe((data:any)=>{
           this.authenticationService.roles=data.roles;
