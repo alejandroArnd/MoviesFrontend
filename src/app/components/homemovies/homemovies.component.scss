@@ -12,6 +12,7 @@
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 40px;
+    cursor: pointer;
 }
 h1{
     text-align:center;
@@ -26,3 +27,13 @@ h1{
 .container-h1{
     width: 100%;
 }
+
+@media all and (max-width: 500px)  {
+    .container {
+      margin:0px;
+      border-radius: 0px;
+    }
+    .container-card > *{
+        height: 500px;
+    }
+  }

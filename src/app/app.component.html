@@ -3,7 +3,7 @@
   <h1 class="title" routerLink="/home" >
     Movies 
   </h1>
-  <select
+  <select fxShow="false" fxShow.gt-sm
       [ngModel]="selectedLang"
       (ngModelChange)="selectLanguage($event)">
       <option value="en">
@@ -23,16 +23,19 @@
   <button mat-button  *ngIf="islogged">{{username}}</button>
   <button mat-button routerLink="/admin" *ngIf="isAdmin">Admin</button>
 </div>
-<button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+<button mat-button [mat-menu-trigger-for]="menu" fxLayout="column" fxHide="false" fxHide.gt-sm>
   <mat-icon>menu</mat-icon>
  </button>
 
 </mat-toolbar>
-<mat-menu x-position="after" #menu="matMenu">
+<mat-menu x-position="after" #menu="matMenu" fxLayout="column">
   <button mat-menu-item routerLink="/login" *ngIf="!islogged">{{'HEADER.LOGIN' | transloco}}</button>
   <button mat-menu-item routerLink="/register" *ngIf="!islogged">{{'HEADER.REGISTER' | transloco}}</button>
-  <button mat-button (click)=logout() *ngIf="islogged">{{'HEADER.LOGOUT' | transloco}}</button>
-  <!--<button mat-menu-item>Help</button>-->
+  <button mat-menu-item (click)=logout() *ngIf="islogged">{{'HEADER.LOGOUT' | transloco}}</button>
+  <button mat-menu-item (click)="selectLanguage('es')" >{{'LANGUAGE.ES' | transloco}}</button>
+  <button mat-menu-item (click)="selectLanguage('en')" >{{'LANGUAGE.EN' | transloco}}</button>
+  <button mat-menu-item  *ngIf="islogged">{{username}}</button>
+  <button mat-menu-item routerLink="/admin" *ngIf="isAdmin">Admin</button>
 </mat-menu>
 <router-outlet></router-outlet>
 
