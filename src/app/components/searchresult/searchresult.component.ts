@@ -19,8 +19,8 @@ export class SearchresultComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParamMap.subscribe( params => {
       this.currentPage=params.get('page');
-      this.genresSelected=params.getAll('genre')
-      this.title=params.get('title')
+      this.genresSelected=params.getAll('genre');
+      this.title=params.get('title').replace("_"," ");
       this.loadSearchMovies();
     });
   }
