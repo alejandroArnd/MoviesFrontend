@@ -61,7 +61,7 @@ export class RefreshtokenInterceptor implements HttpInterceptor {
   public openErrorDialog(error){
     const dialogRef=this.dialog.open(DialogComponent, {
       data:{
-        message: error.error.message,
+        message: error.error.message?error.error.message:error.message,
       },
       width: '450px',
       height: '250px',
