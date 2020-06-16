@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MoviesService} from '../../services/movies.service'
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-homemovies',
@@ -8,15 +9,12 @@ import {MoviesService} from '../../services/movies.service'
 })
 export class HomemoviesComponent implements OnInit {
 
-  movies=[];
+  movies$:Observable<any>;
 
   constructor(private moviesServices: MoviesService) { }
 
   ngOnInit(): void {
-    this.moviesServices.sendGetRecentMoviesRequest().subscribe((_movies:any)=>{
-    this.movies=_movies;
-    }
-  )
+    this.movies$=this.moviesServices.sendGetRecentMoviesRequest()
  }
 
 }
