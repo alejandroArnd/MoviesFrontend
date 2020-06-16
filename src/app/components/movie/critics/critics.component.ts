@@ -55,7 +55,9 @@ export class CriticsComponent implements OnInit{
   this.authenticationService.sendGetUsername().subscribe((response:any)=>{
     critic={...critic,username:response.username};
     criticDuplicate=this.critics.slice();
+    if(this.critics.length===3){
     this.critics.pop();
+    }
     this.critics.unshift(critic);
     this.totalItems++;
   });
