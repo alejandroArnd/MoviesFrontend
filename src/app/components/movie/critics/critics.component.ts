@@ -36,7 +36,7 @@ export class CriticsComponent implements OnInit{
     this.criticsService.sendGetCriticsByMovieTitle(newPage,this.titleOfMovie).subscribe(
       (response: any)=>{
         this.critics=response.critics;
-        this.totalItems=response.maxItems
+        this.totalItems=response.maxItems;
       })
   }
 
@@ -58,7 +58,7 @@ export class CriticsComponent implements OnInit{
     if(this.critics.length===3){
     this.critics.pop();
     }
-    this.critics.unshift(critic);
+    this.critics=[critic,...this.critics];
     this.totalItems++;
   });
   this.criticsService.sendInsertNewCritic(critic).pipe(catchError(
